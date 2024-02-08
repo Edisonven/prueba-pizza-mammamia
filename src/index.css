@@ -21,7 +21,9 @@ body {
 .navbar__container {
   padding: 10px 15px;
   background: var(--color_1);
-  box-shadow: 5px 5px 5px black;
+}
+.navbar__title {
+  color: var(--color_2);
 }
 .navbar__logo__section {
   display: flex;
