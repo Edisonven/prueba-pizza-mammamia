@@ -1,11 +1,32 @@
+:root {
+  --color_1: #65b741;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+/*APP SECTION*/
 .app__container {
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: "Roboto Mono", monospace;
+
+/*NAVBAR SECTION*/
+.navbar__container {
+  padding: 10px 15px;
+  background: var(--color_1);
+  box-shadow: 5px 5px 5px black;
+}
+.navbar__logo__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar__img {
+  width: 40px;
 }
