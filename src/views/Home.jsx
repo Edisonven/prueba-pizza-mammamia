@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ContextApi";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
@@ -6,16 +6,26 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const { apiData, elementFoundById, setElementFoundById } =
     useContext(ApiContext);
+  const [selectedId, setSelectedId] = useState("");
 
   const navigate = useNavigate();
 
   const navigateToDetail = (id) => {
-    const idValueFound = [...apiData].find(
-      (pizza) => pizza.id === id.target.value
-    );
+    const idValueFound = [...apiData].find((pizza) => pizza.id === id);
+
     setElementFoundById(idValueFound);
-    navigate(`/pizzadetail/${elementFoundById}`);
+    setSelectedId(idValueFound.id);
   };
+
+  useEffect(() => {
+    if (selectedId && elementFoundById.id !== undefined) {
+      navigate(`/pizzadetail/${elementFoundById.id}`);
+    }
+  }, [elementFoundById]);
+
+  useEffect(() => {
+    setElementFoundById(null);
+  }, []);
 
   return (
     <div className="home__container">
@@ -48,7 +58,7 @@ const Home = () => {
             <h1 className="home__card__price">$ {pizza.price}</h1>
             <div className="home__card__details">
               <Button
-                onClick={(id) => navigateToDetail(id)}
+                onClick={() => navigateToDetail(pizza.id)}
                 className="home__card__btn home__card__btn__viewmore"
                 variant="danger"
                 value={pizza.id}
