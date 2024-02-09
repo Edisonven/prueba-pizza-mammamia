@@ -61,6 +61,12 @@ body {
 .home__container {
   padding: 20px;
 }
+.link__home {
+  text-decoration: none;
+}
+.link__home:hover {
+  opacity: 70%;
+}
 .home__title {
   margin: 20px 0;
 }
