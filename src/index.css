@@ -98,3 +98,21 @@ body {
 .home__card__ingredient__icono {
   width: 18px;
 }
+.home__Card__line {
+  width: 100%;
+}
+.home__card__price {
+  width: 100%;
+  text-align: center;
+}
+.home__card__details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.home__card__btn__viewmore {
+  height: 40px;
+}

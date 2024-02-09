@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ApiContext } from "../contexts/ContextApi";
-
+import Button from "react-bootstrap/Button";
 const Home = () => {
   const { apiData } = useContext(ApiContext);
 
@@ -20,12 +20,26 @@ const Home = () => {
                 return (
                   <ul key={index} className="home__card__ingredients">
                     <li className="home__card__ingredient">
-                      <img className="home__card__ingredient__icono" src="/pizza_icono.png" alt="" />
+                      <img
+                        className="home__card__ingredient__icono"
+                        src="/pizza_icono.png"
+                        alt=""
+                      />
                       {ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
                     </li>
                   </ul>
                 );
               })}
+            </div>
+            <hr className="home__Card__line" />
+            <h1 className="home__card__price">$ {pizza.price}</h1>
+            <div className="home__card__details">
+              <Button className="home__card__btn home__card__btn__viewmore" variant="danger">Ver más</Button>
+              <div className="home__card__cart">
+                <Button className="home__card__btn " variant="success">
+                  Añadir <img src="/cart.svg" alt="" />
+                </Button>
+              </div>
             </div>
           </div>
         ))}
