@@ -1,13 +1,14 @@
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ContextApi from "./contexts/ContextApi.jsx";
+import ApiProvider from "./contexts/ContextApi.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ContextApi></ContextApi>
-    <App />
+    <ApiProvider>
+      <App />
+    </ApiProvider>
   </React.StrictMode>
 );

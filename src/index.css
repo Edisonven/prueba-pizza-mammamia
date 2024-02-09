@@ -56,3 +56,45 @@ body {
   padding-bottom: 5px;
   border-bottom: 1px solid;
 }
+
+/*HOME SECTION*/
+.home__container {
+  padding: 20px;
+}
+.home__title {
+  margin: 20px 0;
+}
+.home__card__img {
+  width: 100%;
+}
+.home__card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #a8a6a6;
+  margin-bottom: 20px;
+}
+.home__card__title {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+.home__card__ingredients__container {
+  padding: 0 40px;
+}
+.home__card__ingredients__title {
+  margin-bottom: 20px;
+}
+.home__card__ingredient {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+.home__card__ingredient__icono {
+  width: 18px;
+}
