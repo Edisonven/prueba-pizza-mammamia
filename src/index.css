@@ -58,9 +58,7 @@ body {
 }
 
 /*HOME SECTION*/
-.home__container {
-  padding: 20px;
-}
+
 .link__home {
   text-decoration: none;
 }
@@ -68,10 +66,18 @@ body {
   opacity: 70%;
 }
 .home__title {
+  text-align: center;
   margin: 20px 0;
+}
+.home__card__description {
+  text-align: center;
+  padding: 0 30px;
 }
 .home__card__img {
   width: 100%;
+}
+.home__card__container {
+  padding: 20px;
 }
 .home__card__body {
   display: flex;

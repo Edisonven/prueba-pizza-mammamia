@@ -1,8 +1,21 @@
 import { useContext } from "react";
 import { ApiContext } from "../contexts/ContextApi";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
-  const { apiData } = useContext(ApiContext);
+  const { apiData, elementFoundById, setElementFoundById } =
+    useContext(ApiContext);
+
+  const navigate = useNavigate();
+
+  const navigateToDetail = (id) => {
+    const idValueFound = [...apiData].find(
+      (pizza) => pizza.id === id.target.value
+    );
+    setElementFoundById(idValueFound);
+    navigate(`/pizzadetail/${elementFoundById}`);
+  };
 
   return (
     <div className="home__container">
@@ -34,7 +47,15 @@ const Home = () => {
             <hr className="home__Card__line" />
             <h1 className="home__card__price">$ {pizza.price}</h1>
             <div className="home__card__details">
-              <Button className="home__card__btn home__card__btn__viewmore" variant="danger">Ver más</Button>
+              <Button
+                onClick={(id) => navigateToDetail(id)}
+                className="home__card__btn home__card__btn__viewmore"
+                variant="danger"
+                value={pizza.id}
+              >
+                Ver más
+              </Button>
+
               <div className="home__card__cart">
                 <Button className="home__card__btn " variant="success">
                   Añadir <img src="/cart.svg" alt="" />
