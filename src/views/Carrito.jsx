@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 import Button from "react-bootstrap/Button";
+
 const Carrito = () => {
   const { pizzasSeleccionadas } = useContext(CarritoDetailsContext);
 
@@ -15,11 +16,13 @@ const Carrito = () => {
               {pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}
             </p>
           </div>
+
           <div className="carrito__price__container">
+            <p className="carrito__price__value">$: {pizza.price}</p>
             <Button className="carrito__btn " variant="danger">
               -
             </Button>
-            <p className="carrito__price__value">$: {pizza.price}</p>
+            <p>{}</p>
             <Button className="carrito__btn " variant="primary">
               +
             </Button>

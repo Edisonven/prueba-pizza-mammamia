@@ -153,12 +153,12 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #9e9797;
-  padding-bottom: 10px;
+  padding: 10px 0;
 }
 .carrito__details {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .carrito__details__img {
   width: 60px;
@@ -176,7 +176,7 @@ body {
   align-items: center;
   gap: 3px;
 }
-.carrito__btn{
+.carrito__btn {
   transform: scale(0.8);
   width: 38px;
 }
