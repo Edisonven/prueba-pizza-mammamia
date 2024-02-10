@@ -180,3 +180,11 @@ body {
   transform: scale(0.8);
   width: 38px;
 }
+.carrito__total__container {
+  margin-top: 20px;
+}
+.carrito__total__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

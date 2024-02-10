@@ -3,7 +3,9 @@ import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 import Button from "react-bootstrap/Button";
 
 const Carrito = () => {
-  const { pizzasSeleccionadas } = useContext(CarritoDetailsContext);
+  const { pizzasSeleccionadas, totalCarritoValue } = useContext(
+    CarritoDetailsContext
+  );
 
   return (
     <div className="carrito__container">
@@ -29,6 +31,15 @@ const Carrito = () => {
           </div>
         </div>
       ))}
+      <div className="carrito__total__container">
+        <div className="carrito__total__section">
+          <h1>Total </h1>
+          <h1>$: {totalCarritoValue}</h1>
+        </div>
+        <Button className="carrito__btn__total " variant="success">
+          Ir a pagar
+        </Button>
+      </div>
     </div>
   );
 };
