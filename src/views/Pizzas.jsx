@@ -23,7 +23,7 @@ const Pizzas = () => {
   }, [elementFoundById]);
 
   useEffect(() => {
-    setElementFoundById(null);
+    setElementFoundById("");
   }, []);
 
   return (
