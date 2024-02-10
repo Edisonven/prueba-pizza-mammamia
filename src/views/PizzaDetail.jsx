@@ -44,7 +44,6 @@ const PizzaDetail = () => {
             <div className="home__card__cart">
               <Button
                 onClick={() => {
-                  handleChangeCarrito(elementFoundById.price);
                   filteredPizzasList(elementFoundById);
                 }}
                 className="home__card__btn "
