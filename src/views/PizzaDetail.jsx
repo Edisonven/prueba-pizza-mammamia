@@ -8,41 +8,51 @@ const PizzaDetail = () => {
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
 
   return (
-    <div className="home__card__container">
+    <div className="home__card__container__details">
       {elementFoundById ? (
-        <div key={elementFoundById.id} className="home__card__body">
-          <img className="home__card__img" src={elementFoundById.img} alt="" />
-          <h3 className="home__card__title">
-            {elementFoundById.name.charAt(0).toUpperCase() +
-              elementFoundById.name.slice(1)}
-          </h3>
-          <p className="home__card__description">{elementFoundById.desc}</p>
-          <div className="home__card__ingredients__container">
-            <h5 className="home__card__ingredients__title">Ingredientes:</h5>
-            {elementFoundById.ingredients.map((ingredient, index) => {
-              return (
-                <ul key={index} className="home__card__ingredients">
-                  <li className="home__card__ingredient">
-                    <img
-                      className="home__card__ingredient__icono"
-                      src="/pizza_icono.png"
-                      alt=""
-                    />
-                    {ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
-                  </li>
-                </ul>
-              );
-            })}
-          </div>
-          <hr className="home__Card__line" />
-          <h1 className="home__card__price">$ {elementFoundById.price}</h1>
-          <div className="home__card__details">
-            <div className="home__card__cart">
+        <div key={elementFoundById.id} className="home__card__body__details">
+          <img
+            className=" home__card__img__details"
+            src={elementFoundById.img}
+            alt=""
+          />
+          <div className="home__card__info__container__details">
+            <h3 className="home__card__title__details">
+              {elementFoundById.name.charAt(0).toUpperCase() +
+                elementFoundById.name.slice(1)}
+            </h3>
+            <p className=" home__card__description__details">
+              {elementFoundById.desc}
+            </p>
+            <div className="home__card__ingredients__container__details">
+              <h5 className="home__card__ingredients__title__details">
+                Ingredientes:
+              </h5>
+              {elementFoundById.ingredients.map((ingredient, index) => {
+                return (
+                  <ul key={index} className="home__card__ingredients__details">
+                    <li className="home__card__ingredient__details">
+                      <img
+                        className="home__card__ingredient__icono__details"
+                        src="/pizza_icono.png"
+                        alt=""
+                      />
+                      {ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}
+                    </li>
+                  </ul>
+                );
+              })}
+            </div>
+            <hr className="home__Card__line__details" />
+            <div className="home__card__details__details">
+              <h1 className="home__card__price__details">
+                Precio: ${elementFoundById.price}
+              </h1>
               <Button
                 onClick={() => {
                   filteredPizzasList(elementFoundById);
                 }}
-                className="home__card__btn "
+                className="home__card__btn__details"
                 variant="success"
                 value={elementFoundById.price}
               >
