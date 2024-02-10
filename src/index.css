@@ -19,6 +19,9 @@ body {
 
 /*NAVBAR SECTION*/
 .navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 15px;
   background: var(--color_1);
 }
@@ -29,6 +32,16 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.navbar__carrito__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color_2);
+}
+.navbar__carrito__value {
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 .navbar__img {
   width: 40px;
