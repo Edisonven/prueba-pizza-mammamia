@@ -15,6 +15,7 @@ body {
 .app__container {
   margin: 0;
   padding: 0;
+  min-width: 375px;
 }
 
 /*NAVBAR SECTION*/
@@ -160,7 +161,7 @@ body {
   gap: 10px;
 }
 .carrito__details__img {
-  width: 80px;
+  width: 60px;
 }
 .carrito__details__paragraph {
   font-weight: 700;
@@ -169,4 +170,12 @@ body {
 .carrito__price__value {
   font-weight: 700;
   margin: 0;
+}
+.carrito__price__container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.carrito__btn{
+  transform: scale(0.8);
 }

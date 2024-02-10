@@ -5,12 +5,8 @@ import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const PizzaDetail = () => {
   const { elementFoundById } = useContext(ApiContext);
-  const { setTotalCarritoValue } = useContext(CarritoDetailsContext);
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
-  const handleChangeCarrito = () => {
-    const priceValueFound = elementFoundById.price;
-    setTotalCarritoValue((priceValue) => priceValue + priceValueFound);
-  };
+
   return (
     <div className="home__card__container">
       {elementFoundById ? (
