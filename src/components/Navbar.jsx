@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CarritoContext } from "../contexts/ContextCarrito";
 
 const Navbar = () => {
-  const { carrito } = useContext(CarritoContext);
+  const { totalCarritoValue } = useContext(CarritoContext);
   return (
     <div className="navbar__container">
       <div className="navbar__logo__section">
@@ -15,7 +15,7 @@ const Navbar = () => {
       <div>
         <Link to="/carrito" className="navbar__carrito__section link__home">
           <img src="/cart.svg" alt="" />
-          <span className="navbar__carrito__value">$: {carrito}</span>
+          <span className="navbar__carrito__value">$: {totalCarritoValue}</span>
         </Link>
       </div>
     </div>
