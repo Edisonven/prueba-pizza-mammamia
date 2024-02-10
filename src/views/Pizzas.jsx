@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ContextApi";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import { CarritoContext } from "../contexts/ContextCarrito";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const Pizzas = () => {
   const { apiData, elementFoundById, setElementFoundById } =
     useContext(ApiContext);
-  const { setTotalCarritoValue } = useContext(CarritoContext);
+  const { setTotalCarritoValue } = useContext(CarritoDetailsContext);
   const [selectedId, setSelectedId] = useState("");
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
   const navigate = useNavigate();
@@ -19,11 +18,11 @@ const Pizzas = () => {
     setSelectedId(idValueFound.id);
   };
 
-  const handleChangeCarrito = (price) => {
+/*   const handleChangeCarrito = (price) => {
     const priceValueFound = [...apiData].find((pizza) => pizza.price === price);
     let priceValue = priceValueFound.price;
     setTotalCarritoValue((price) => price + priceValue);
-  };
+  }; */
 
   useEffect(() => {
     if (selectedId && elementFoundById.id !== undefined) {
@@ -76,7 +75,7 @@ const Pizzas = () => {
               <div className="home__card__cart">
                 <Button
                   onClick={() => {
-                    handleChangeCarrito(pizza.price);
+                   /*  handleChangeCarrito(pizza.price); */
                     filteredPizzasList(pizza);
                   }}
                   className="home__card__btn "

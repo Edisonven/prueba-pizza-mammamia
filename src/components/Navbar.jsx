@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CarritoContext } from "../contexts/ContextCarrito";
+import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
+
 
 const Navbar = () => {
-  const { totalCarritoValue } = useContext(CarritoContext);
+  const { totalCarritoValue } = useContext(CarritoDetailsContext);
   return (
     <div className="navbar__container">
       <div className="navbar__logo__section">

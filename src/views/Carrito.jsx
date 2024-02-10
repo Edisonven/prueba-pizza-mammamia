@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
-import { CarritoContext } from "../contexts/ContextCarrito";
 
 const Carrito = () => {
   const { pizzasSeleccionadas } = useContext(CarritoDetailsContext);
@@ -9,7 +8,7 @@ const Carrito = () => {
     <div className="carrito__container">
       <h4 className="carrito__title">Detalles del pedido</h4>
       {pizzasSeleccionadas?.map((pizza) => (
-        <div className="carrito__details__container">
+        <div key={pizza.id} className="carrito__details__container">
           <div className="carrito__details">
             <img className="carrito__details__img" src={pizza.img} alt="" />
             <h5 className="carrito__details__paragraph">{pizza.name}</h5>
