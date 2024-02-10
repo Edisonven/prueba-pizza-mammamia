@@ -15,7 +15,7 @@ const Carrito = () => {
             <h5 className="carrito__details__paragraph">{pizza.name}</h5>
           </div>
           <div className="carrito__price__container">
-            <p className="carrito__price__value">$: </p>
+            <p className="carrito__price__value">$: {pizza.price}</p>
           </div>
         </div>
       ))}

@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { ApiContext } from "../contexts/ContextApi";
 import Button from "react-bootstrap/Button";
 import { CarritoContext } from "../contexts/ContextCarrito";
+import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const PizzaDetail = () => {
   const { elementFoundById } = useContext(ApiContext);
   const { setTotalCarritoValue } = useContext(CarritoContext);
+  const { filteredPizzasList } = useContext(CarritoDetailsContext);
   const handleChangeCarrito = () => {
     const priceValueFound = elementFoundById.price;
     setTotalCarritoValue((priceValue) => priceValue + priceValueFound);
@@ -42,7 +44,10 @@ const PizzaDetail = () => {
           <div className="home__card__details">
             <div className="home__card__cart">
               <Button
-                onClick={() => handleChangeCarrito(elementFoundById.price)}
+                onClick={() => {
+                  handleChangeCarrito(elementFoundById.price);
+                  filteredPizzasList(elementFoundById);
+                }}
                 className="home__card__btn "
                 variant="success"
                 value={elementFoundById.price}
