@@ -12,11 +12,11 @@ const Navbar = () => {
           <h4 className="navbar__title">Mamma mía!</h4>
         </Link>
       </div>
-      <div className="navbar__carrito__section">
-        <Link to="/carrito" className="link__home">
+      <div>
+        <Link to="/carrito" className="navbar__carrito__section link__home">
           <img src="/cart.svg" alt="" />
+          <span className="navbar__carrito__value">$: {carrito}</span>
         </Link>
-        <span className="navbar__carrito__value">$: {carrito}</span>
       </div>
     </div>
   );

@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ContextApi";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import { CarritoContext } from "../contexts/ContextCarrito";
 const Pizzas = () => {
   const { apiData, elementFoundById, setElementFoundById } =
     useContext(ApiContext);
+  const {carrito, setCarrito } = useContext(CarritoContext);
   const [selectedId, setSelectedId] = useState("");
 
   const navigate = useNavigate();
@@ -14,6 +16,12 @@ const Pizzas = () => {
 
     setElementFoundById(idValueFound);
     setSelectedId(idValueFound.id);
+  };
+
+  const handleChangeCarrito = (price) => {
+    const priceValueFound = [...apiData].find((pizza) => pizza.price === price);
+    let priceValue = priceValueFound.price
+    setCarrito((carrito)=>  carrito + priceValue);
   };
 
   useEffect(() => {
@@ -65,7 +73,11 @@ const Pizzas = () => {
               </Button>
 
               <div className="home__card__cart">
-                <Button className="home__card__btn " variant="success">
+                <Button
+                  onClick={() => handleChangeCarrito(pizza.price)}
+                  className="home__card__btn "
+                  variant="success"
+                >
                   Añadir <img src="/cart.svg" alt="" />
                 </Button>
               </div>
