@@ -6,7 +6,7 @@ import { CarritoContext } from "../contexts/ContextCarrito";
 const Pizzas = () => {
   const { apiData, elementFoundById, setElementFoundById } =
     useContext(ApiContext);
-  const {carrito, setCarrito } = useContext(CarritoContext);
+  const { setCarrito } = useContext(CarritoContext);
   const [selectedId, setSelectedId] = useState("");
 
   const navigate = useNavigate();
@@ -20,8 +20,8 @@ const Pizzas = () => {
 
   const handleChangeCarrito = (price) => {
     const priceValueFound = [...apiData].find((pizza) => pizza.price === price);
-    let priceValue = priceValueFound.price
-    setCarrito((carrito)=>  carrito + priceValue);
+    let priceValue = priceValueFound.price;
+    setCarrito((carrito) => carrito + priceValue);
   };
 
   useEffect(() => {
