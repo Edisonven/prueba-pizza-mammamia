@@ -1,5 +1,5 @@
 :root {
-  --color_1: #65b741;
+  --color_1: #62b741;
   --color_2: #fff;
 }
 
@@ -160,6 +160,9 @@ body {
 }
 
 /*CARRITO SECTION*/
+.navbar__title{
+  font-size: 1.8rem;
+}
 .carrito__container {
   padding: 15px;
 }
@@ -208,7 +211,7 @@ body {
 
 @media (min-width: 576px) {
   .navbar__container {
-    padding: 20px 30px;
+    padding: 10px 30px;
   }
   .header__img {
     height: 300px;
@@ -219,6 +222,9 @@ body {
   }
   .navbar__carrito__img {
     width: 30px;
+  }
+  .navbar__img {
+    width: 70px;
   }
   .header__title {
     font-size: 3rem;
