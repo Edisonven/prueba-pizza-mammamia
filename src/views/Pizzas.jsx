@@ -54,7 +54,12 @@ const Pizzas = () => {
               })}
             </div>
             <hr className="home__Card__line" />
-            <h1 className="home__card__price">$ {pizza.price}</h1>
+            <h1 className="home__card__price">
+              {pizza.price.toLocaleString("es-CL", {
+                style: "currency",
+                currency: "CLP",
+              })}
+            </h1>
             <div className="home__card__details">
               <Button
                 onClick={() => navigateToDetail(pizza.id)}

@@ -20,7 +20,12 @@ const Carrito = () => {
           </div>
 
           <div className="carrito__price__container">
-            <p className="carrito__price__value">$: {pizza.price}</p>
+            <p className="carrito__price__value">
+              {pizza.price.toLocaleString("es-CL", {
+                style: "currency",
+                currency: "CLP",
+              })}
+            </p>
             <Button className="carrito__btn " variant="danger">
               -
             </Button>
@@ -34,7 +39,12 @@ const Carrito = () => {
       <div className="carrito__total__container">
         <div className="carrito__total__section">
           <h1>Total </h1>
-          <h1>$: {totalCarritoValue}</h1>
+          <h1>
+            {totalCarritoValue.toLocaleString("es-CL", {
+              style: "currency",
+              currency: "CLP",
+            })}
+          </h1>
         </div>
         <Button className="carrito__btn__total " variant="success">
           Ir a pagar

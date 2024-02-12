@@ -46,7 +46,11 @@ const PizzaDetail = () => {
             <hr className="home__Card__line__details" />
             <div className="home__card__details__details">
               <h1 className="home__card__price__details">
-                Precio: ${elementFoundById.price}
+                Precio:{" "}
+                {elementFoundById.price.toLocaleString("es-CL", {
+                  style: "currency",
+                  currency: "CLP",
+                })}
               </h1>
               <Button
                 onClick={() => {

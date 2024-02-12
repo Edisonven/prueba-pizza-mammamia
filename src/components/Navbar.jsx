@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
-
 const Navbar = () => {
   const { totalCarritoValue } = useContext(CarritoDetailsContext);
   return (
@@ -16,7 +15,12 @@ const Navbar = () => {
       <div>
         <Link to="/carrito" className="navbar__carrito__section link__home">
           <img className="navbar__carrito__img" src="/cart.svg" alt="" />
-          <span className="navbar__carrito__value">$: {totalCarritoValue}</span>
+          <span className="navbar__carrito__value">
+            {totalCarritoValue.toLocaleString("es-CL", {
+              style: "currency",
+              currency: "CLP",
+            })}
+          </span>
         </Link>
       </div>
     </div>
