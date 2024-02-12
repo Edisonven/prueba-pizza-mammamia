@@ -1,11 +1,44 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 import Button from "react-bootstrap/Button";
 
 const Carrito = () => {
-  const { pizzasSeleccionadas, totalCarritoValue } = useContext(
-    CarritoDetailsContext
-  );
+  const { pizzasSeleccionadas, setPizzasSeleccionadas, totalCarritoValue } =
+    useContext(CarritoDetailsContext);
+
+  const decrement = (pizza) => {
+    setPizzasSeleccionadas((prevPizzas) => {
+      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
+
+      if (pizzaYaSeleccionada) {
+        return prevPizzas.map((p) => {
+          if (p.id === pizza.id) {
+            return { ...p, cantidad: p.cantidad - 1 };
+          }
+          return p;
+        });
+      } else {
+        return [...prevPizzas, { ...pizza, cantidad: 1 }];
+      }
+    });
+  };
+
+  const increment = (pizza) => {
+    setPizzasSeleccionadas((prevPizzas) => {
+      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
+
+      if (pizzaYaSeleccionada) {
+        return prevPizzas.map((p) => {
+          if (p.id === pizza.id) {
+            return { ...p, cantidad: p.cantidad + 1 };
+          }
+          return p;
+        });
+      } else {
+        return [...prevPizzas, { ...pizza, cantidad: 1 }];
+      }
+    });
+  };
 
   return (
     <div className="carrito__container">
@@ -21,16 +54,24 @@ const Carrito = () => {
 
           <div className="carrito__price__container">
             <p className="carrito__price__value">
-              {pizza.price.toLocaleString("es-CL", {
+              {parseInt(pizza.price * pizza.cantidad).toLocaleString("es-CL", {
                 style: "currency",
                 currency: "CLP",
               })}
             </p>
-            <Button className="carrito__btn " variant="danger">
+            <Button
+              onClick={() => decrement(pizza)}
+              className="carrito__btn "
+              variant="danger"
+            >
               -
             </Button>
-            <p>{}</p>
-            <Button className="carrito__btn " variant="primary">
+            <p>{pizza.cantidad}</p>
+            <Button
+              onClick={() => increment(pizza)}
+              className="carrito__btn "
+              variant="primary"
+            >
               +
             </Button>
           </div>

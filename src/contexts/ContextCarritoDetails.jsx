@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+
 export const CarritoDetailsContext = createContext();
 
 const CarritoDetailsPovider = ({ children }) => {
@@ -6,15 +7,34 @@ const CarritoDetailsPovider = ({ children }) => {
   const [totalCarritoValue, setTotalCarritoValue] = useState(0);
 
   const filteredPizzasList = (pizza) => {
-    const pizzaYaSeleccionada = pizzasSeleccionadas.filter(
-      (p) => p.id === pizza.id
-    );
-    if (pizzaYaSeleccionada.length === 0) {
-      setPizzasSeleccionadas([...pizzasSeleccionadas, pizza]);
-      const newTotalCarritoValue = totalCarritoValue + pizza.price;
-      setTotalCarritoValue(newTotalCarritoValue);
-    }
+    setPizzasSeleccionadas((prevPizzas) => {
+      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
+
+      if (pizzaYaSeleccionada) {
+        return prevPizzas.map((p) => {
+          if (p.id === pizza.id) {
+            return { ...p, cantidad: p.cantidad + 1 };
+          }
+          return p;
+        });
+      } else {
+        return [...prevPizzas, { ...pizza, cantidad: 1 }];
+      }
+    });
   };
+
+  // Esta función calcula el total del carrito sumando los precios de todas las pizzas seleccionadas
+  const calculateTotal = () => {
+    return pizzasSeleccionadas.reduce(
+      (total, pizza) => total + pizza.price * pizza.cantidad,
+      0
+    );
+  };
+
+  // Actualiza el total del carrito cuando se cambia el estado de pizzasSeleccionadas
+  useEffect(() => {
+    setTotalCarritoValue(calculateTotal());
+  }, [pizzasSeleccionadas]);
 
   return (
     <CarritoDetailsContext.Provider
