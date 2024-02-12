@@ -15,7 +15,7 @@ const Navbar = () => {
       </div>
       <div>
         <Link to="/carrito" className="navbar__carrito__section link__home">
-          <img src="/cart.svg" alt="" />
+          <img className="navbar__carrito__img" src="/cart.svg" alt="" />
           <span className="navbar__carrito__value">$: {totalCarritoValue}</span>
         </Link>
       </div>
