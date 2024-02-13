@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
-  const { pizzasSeleccionadas, setPizzasSeleccionadas, totalCarritoValue } =
+  const { pizzasSeleccionadas, setPizzasSeleccionadas, totalCarritoValue ,filteredPizzasList } =
     useContext(CarritoDetailsContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
@@ -32,29 +32,6 @@ const Carrito = () => {
         return updatedPizzas;
       } else {
         // Devuelve el objeto del estado anterior con su propiedad cantidad asignada en 1
-        return [...prevPizzas, { ...pizza, cantidad: 1 }];
-      }
-    });
-  };
-
-  //Función que incrementa la cantidad de elementos seleccionados en el carrito
-  const increment = (pizza) => {
-    //Función de actualización de estado anterior
-    setPizzasSeleccionadas((prevPizzas) => {
-      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
-      //Condicional que evalúa si pizza ya seleccionada encontró el objeto para ejecutar la siguiente lógica
-      if (pizzaYaSeleccionada) {
-        //Si la condicional se resuelve en true, mapea el estado anterior de pizzas y crea un nuevo array con la propiedad cantidad del objeto aumentada en 1
-        return prevPizzas.map((p) => {
-          if (p.id === pizza.id) {
-            return { ...p, cantidad: p.cantidad + 1 };
-          }
-
-          //Si no se cumple la condición superior, simplemente devuelve la pizza (objeto) sin cambios
-          return p;
-        });
-      } else {
-        //Devuelve el objeto del estado anterior con su propiedad asignada en 1 la primera vez que se añade una pizza
         return [...prevPizzas, { ...pizza, cantidad: 1 }];
       }
     });
@@ -89,7 +66,7 @@ const Carrito = () => {
             <p className="carrito__cantidad">{pizza.cantidad}</p>
             <Button
               //Se llama a la función con el objeto asignado como parámetro
-              onClick={() => increment(pizza)}
+              onClick={() => filteredPizzasList(pizza)}
               className="carrito__btn "
               variant="primary"
             >
