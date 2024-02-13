@@ -10,7 +10,11 @@ const ApiProvider = ({ children }) => {
   const getApiData = async () => {
     const respuesta = await fetch(apiUrl);
     const data = await respuesta.json();
-    setApiData(data);
+    setApiData(
+      data.map((pizza) => {
+        return { ...pizza, cantidad: 0 };
+      })
+    );
   };
 
   //Efecto secundario que se ejetuca al montar el componente donde sea llamado

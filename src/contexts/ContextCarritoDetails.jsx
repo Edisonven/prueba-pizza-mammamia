@@ -6,22 +6,22 @@ const CarritoDetailsPovider = ({ children }) => {
   const [pizzasSeleccionadas, setPizzasSeleccionadas] = useState([]);
   const [totalCarritoValue, setTotalCarritoValue] = useState(0);
 
-  //Función creada para ser utilizada en las vistas de home y detalle para añadir un elemento al carrito (función de actualización de estado anterior)
+  //Función creada para ser utilizada en las vistas de home y detalle para añadir un elemento al carrito
   const filteredPizzasList = (pizza) => {
-    setPizzasSeleccionadas((prevPizzas) => {
-      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
-
-      if (pizzaYaSeleccionada) {
-        return prevPizzas.map((p) => {
-          if (p.id === pizza.id) {
-            return { ...p, cantidad: p.cantidad + 1 };
-          }
-          return p;
-        });
-      } else {
-        return [...prevPizzas, { ...pizza, cantidad: 1 }];
-      }
-    });
+    const pizzaYaSeleccionada = pizzasSeleccionadas.find(
+      (p) => p.id === pizza.id
+    );
+    if (pizzaYaSeleccionada) {
+      const nuevasPizzasSeleccionadas = pizzasSeleccionadas.map((p) =>
+        p.id === pizza.id ? { ...p, cantidad: p.cantidad + 1 } : p
+      );
+      setPizzasSeleccionadas(nuevasPizzasSeleccionadas);
+    } else {
+      setPizzasSeleccionadas([
+        ...pizzasSeleccionadas,
+        { ...pizza, cantidad: 1 },
+      ]);
+    }
   };
 
   // Esta función calcula el total del carrito sumando los precios de todas las pizzas seleccionadas

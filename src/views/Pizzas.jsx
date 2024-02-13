@@ -40,7 +40,7 @@ const Pizzas = () => {
   useEffect(() => {
     setElementFoundById("");
   }, []);
-
+  console.log(apiData);
   return (
     <div className="home__container">
       <div className="home__card__container">
