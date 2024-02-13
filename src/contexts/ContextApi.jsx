@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const ApiContext = createContext();
 
-const apiUrl = "/src/assets/pizzas.json";
+const apiUrl = "/pizzas.json";
 
 const ApiProvider = ({ children }) => {
   const [apiData, setApiData] = useState([]);
