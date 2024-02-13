@@ -3,38 +3,58 @@ import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 import Button from "react-bootstrap/Button";
 
 const Carrito = () => {
+  //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
   const { pizzasSeleccionadas, setPizzasSeleccionadas, totalCarritoValue } =
     useContext(CarritoDetailsContext);
 
+  //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
+    //Función de actualización de estado que toma el estado anterior como parametro y encuentra el objeto por su id y lo almacena en una variable
     setPizzasSeleccionadas((prevPizzas) => {
       const pizzaIndex = prevPizzas.findIndex((p) => p.id === pizza.id);
-  
+
+      //Condicional que evalúa que el índice encontrado sea distinto a -1(osea, que exista coincidencia), para actualizar el estado de pizzas seleciconadas
       if (pizzaIndex !== -1) {
+        //Variable que almacena una copia del estado anterior de pizzas seleccionadas(Objeto)
         const updatedPizzas = [...prevPizzas];
+
+        //Condicional que evalúa el estado anterior con su índice, si la propiedad cantidad es igual a 1 ejecuta el código siguiente
         if (prevPizzas[pizzaIndex].cantidad === 1) {
           updatedPizzas.splice(pizzaIndex, 1); // Elimina el objeto si la cantidad es 0
         } else {
-          updatedPizzas[pizzaIndex] = { ...prevPizzas[pizzaIndex], cantidad: prevPizzas[pizzaIndex].cantidad - 1 };
+          //Código que se ejecuta si la condición de arriba no se cumple, y disminuye la cantidad de pizzas seleccionadas según la cantidad incrementada en la funciónd de sumar
+          updatedPizzas[pizzaIndex] = {
+            ...prevPizzas[pizzaIndex],
+            cantidad: prevPizzas[pizzaIndex].cantidad - 1,
+          };
         }
+        //Devuelve el nuevo arraglo según se resuleva la lógica anterior
         return updatedPizzas;
       } else {
+        // Devuelve el objeto del estado anterior con su propiedad cantidad asignada en 1
         return [...prevPizzas, { ...pizza, cantidad: 1 }];
       }
     });
   };
+
+  //Función que incrementa la cantidad de elementos seleccionados en el carrito
   const increment = (pizza) => {
+    //Función de actualización de estado anterior
     setPizzasSeleccionadas((prevPizzas) => {
       const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
-
+      //Condicional que evalúa si pizza ya seleccionada encontró el objeto para ejecutar la siguiente lógica
       if (pizzaYaSeleccionada) {
+        //Si la condicional se resuelve en true, mapea el estado anterior de pizzas y crea un nuevo array con la propiedad cantidad del objeto aumentada en 1
         return prevPizzas.map((p) => {
           if (p.id === pizza.id) {
             return { ...p, cantidad: p.cantidad + 1 };
           }
+
+          //Si no se cumple la condición superior, simplemente devuelve la pizza (objeto) sin cambios
           return p;
         });
       } else {
+        //Devuelve el objeto del estado anterior con su propiedad asignada en 1 la primera vez que se añade una pizza
         return [...prevPizzas, { ...pizza, cantidad: 1 }];
       }
     });
@@ -68,6 +88,7 @@ const Carrito = () => {
             </Button>
             <p className="carrito__cantidad">{pizza.cantidad}</p>
             <Button
+              //Se llama a la función con el objeto asignado como parámetro
               onClick={() => increment(pizza)}
               className="carrito__btn "
               variant="primary"
@@ -81,6 +102,7 @@ const Carrito = () => {
         <div className="carrito__total__section">
           <h1>Total </h1>
           <h1>
+            {/*Estado que muestra el total añadido al carrito y formatea el valor a peso chileno*/}
             {totalCarritoValue.toLocaleString("es-CL", {
               style: "currency",
               currency: "CLP",

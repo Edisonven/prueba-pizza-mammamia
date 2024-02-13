@@ -5,24 +5,36 @@ import { useNavigate } from "react-router-dom";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const Pizzas = () => {
+  //Estado global que almacena la petición a la api, y cada objeto de la api encontrado dinamicamente por su id
   const { apiData, elementFoundById, setElementFoundById } =
     useContext(ApiContext);
+
+  //Estado que guarda el id del objeto enocntrado dinamicamente
   const [selectedId, setSelectedId] = useState("");
+
+  //Función que cuentra el objeto por su id y lo almacena
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
+
+  //Hook que redirige programáticamente
   const navigate = useNavigate();
 
+  //Función que encuentra el objeto cuyo id sea igual al id del mismo y redirige hacia el detalle de la pizza al presionar el botón
   const navigateToDetail = (id) => {
     const idValueFound = [...apiData].find((pizza) => pizza.id === id);
     setElementFoundById(idValueFound);
     setSelectedId(idValueFound.id);
   };
 
+  //Efecto secundario que se ejecuta cada vez que su dependecia cambia
   useEffect(() => {
+    //condicional que evalua que el contenido de selectedId y elementFoundById.id sea distinto de indefinido para recién redirigir a la ruta definida
     if (selectedId && elementFoundById.id !== undefined) {
       navigate(`/pizzadetail/${elementFoundById.id}`);
     }
+    //Dependecia que cuando cambia ejecuta el bloque del hook useEffect
   }, [elementFoundById]);
 
+  //Efecto secundario destinado a vaciar el estado cada vez que se monta el componente (Cambio de vistas y recarga de la página)
   useEffect(() => {
     setElementFoundById("");
   }, []);
@@ -62,6 +74,7 @@ const Pizzas = () => {
             </h1>
             <div className="home__card__details">
               <Button
+                //Función llamada con el id del objeto almacenado como parámetro para encontrar el objeto seleccionado
                 onClick={() => navigateToDetail(pizza.id)}
                 className="home__card__btn home__card__btn__viewmore"
                 variant="danger"
@@ -72,6 +85,7 @@ const Pizzas = () => {
 
               <div className="home__card__cart">
                 <Button
+                  //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
                   onClick={() => filteredPizzasList(pizza)}
                   className="home__card__btn "
                   variant="success"

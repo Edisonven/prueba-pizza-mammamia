@@ -4,7 +4,10 @@ import Button from "react-bootstrap/Button";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const PizzaDetail = () => {
+  //Estado global llamado para mapear los resultados de la vista detalle
   const { elementFoundById } = useContext(ApiContext);
+
+  //Función global llamada para ser ejecutada en botón de vista de detalles
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
 
   return (
