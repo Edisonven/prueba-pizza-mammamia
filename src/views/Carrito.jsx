@@ -8,21 +8,21 @@ const Carrito = () => {
 
   const decrement = (pizza) => {
     setPizzasSeleccionadas((prevPizzas) => {
-      const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
-
-      if (pizzaYaSeleccionada) {
-        return prevPizzas.map((p) => {
-          if (p.id === pizza.id) {
-            return { ...p, cantidad: p.cantidad - 1 };
-          }
-          return p;
-        });
+      const pizzaIndex = prevPizzas.findIndex((p) => p.id === pizza.id);
+  
+      if (pizzaIndex !== -1) {
+        const updatedPizzas = [...prevPizzas];
+        if (prevPizzas[pizzaIndex].cantidad === 1) {
+          updatedPizzas.splice(pizzaIndex, 1); // Elimina el objeto si la cantidad es 0
+        } else {
+          updatedPizzas[pizzaIndex] = { ...prevPizzas[pizzaIndex], cantidad: prevPizzas[pizzaIndex].cantidad - 1 };
+        }
+        return updatedPizzas;
       } else {
         return [...prevPizzas, { ...pizza, cantidad: 1 }];
       }
     });
   };
-
   const increment = (pizza) => {
     setPizzasSeleccionadas((prevPizzas) => {
       const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);
