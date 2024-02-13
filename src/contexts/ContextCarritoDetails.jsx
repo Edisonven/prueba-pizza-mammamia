@@ -6,7 +6,7 @@ const CarritoDetailsPovider = ({ children }) => {
   const [pizzasSeleccionadas, setPizzasSeleccionadas] = useState([]);
   const [totalCarritoValue, setTotalCarritoValue] = useState(0);
 
-  //Función creada para ser utilizada donde sea requerida (función de actualización de estado anterior)
+  //Función creada para ser utilizada en las vistas de home y detalle para añadir un elemento al carrito (función de actualización de estado anterior)
   const filteredPizzasList = (pizza) => {
     setPizzasSeleccionadas((prevPizzas) => {
       const pizzaYaSeleccionada = prevPizzas.find((p) => p.id === pizza.id);

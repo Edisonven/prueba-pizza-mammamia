@@ -21,7 +21,9 @@ const Pizzas = () => {
   //Función que encuentra el objeto cuyo id sea igual al id del mismo y redirige hacia el detalle de la pizza al presionar el botón
   const navigateToDetail = (id) => {
     const idValueFound = [...apiData].find((pizza) => pizza.id === id);
+    //setea el objeto encontrado
     setElementFoundById(idValueFound);
+    //setea el id del objeto encontrado
     setSelectedId(idValueFound.id);
   };
 
