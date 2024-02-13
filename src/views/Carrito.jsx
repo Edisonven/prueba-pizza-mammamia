@@ -4,37 +4,32 @@ import Button from "react-bootstrap/Button";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
-  const { pizzasSeleccionadas, setPizzasSeleccionadas, totalCarritoValue ,filteredPizzasList } =
-    useContext(CarritoDetailsContext);
+  const {
+    pizzasSeleccionadas,
+    setPizzasSeleccionadas,
+    totalCarritoValue,
+    filteredPizzasList,
+  } = useContext(CarritoDetailsContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
-    //Función de actualización de estado que toma el estado anterior como parametro y encuentra el objeto por su id y lo almacena en una variable
-    setPizzasSeleccionadas((prevPizzas) => {
-      const pizzaIndex = prevPizzas.findIndex((p) => p.id === pizza.id);
+    const pizzaIndex = pizzasSeleccionadas.findIndex((p) => p.id === pizza.id);
 
-      //Condicional que evalúa que el índice encontrado sea distinto a -1(osea, que exista coincidencia), para actualizar el estado de pizzas seleciconadas
-      if (pizzaIndex !== -1) {
-        //Variable que almacena una copia del estado anterior de pizzas seleccionadas(Objeto)
-        const updatedPizzas = [...prevPizzas];
+    if (pizzaIndex !== -1) {
+      const updatedPizzas = [...pizzasSeleccionadas];
 
-        //Condicional que evalúa el estado anterior con su índice, si la propiedad cantidad es igual a 1 ejecuta el código siguiente
-        if (prevPizzas[pizzaIndex].cantidad === 1) {
-          updatedPizzas.splice(pizzaIndex, 1); // Elimina el objeto si la cantidad es 0
-        } else {
-          //Código que se ejecuta si la condición de arriba no se cumple, y disminuye la cantidad de pizzas seleccionadas según la cantidad incrementada en la funciónd de sumar
-          updatedPizzas[pizzaIndex] = {
-            ...prevPizzas[pizzaIndex],
-            cantidad: prevPizzas[pizzaIndex].cantidad - 1,
-          };
-        }
-        //Devuelve el nuevo arraglo según se resuleva la lógica anterior
-        return updatedPizzas;
+      if (pizzasSeleccionadas[pizzaIndex].cantidad === 1) {
+        updatedPizzas.splice(pizzaIndex, 1);
       } else {
-        // Devuelve el objeto del estado anterior con su propiedad cantidad asignada en 1
-        return [...prevPizzas, { ...pizza, cantidad: 1 }];
+        updatedPizzas[pizzaIndex] = {
+          ...pizzasSeleccionadas[pizzaIndex],
+          cantidad: pizzasSeleccionadas[pizzaIndex].cantidad - 1,
+        };
       }
-    });
+
+      // Actualiza el estado con el arreglo actualizado
+      setPizzasSeleccionadas(updatedPizzas);
+    }
   };
 
   return (
