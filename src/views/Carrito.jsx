@@ -66,7 +66,7 @@ const Carrito = () => {
             >
               -
             </Button>
-            <p>{pizza.cantidad}</p>
+            <p className="carrito__cantidad">{pizza.cantidad}</p>
             <Button
               onClick={() => increment(pizza)}
               className="carrito__btn "
