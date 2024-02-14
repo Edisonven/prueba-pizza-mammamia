@@ -47,13 +47,13 @@ const PizzaDetail = () => {
             </div>
             <hr className="home__Card__line__details" />
             <div className="home__card__details__details">
-              <h1 className="home__card__price__details">
+              <h3 className="home__card__price__details">
                 Precio:{" "}
                 {elementFoundById.price.toLocaleString("es-CL", {
                   style: "currency",
                   currency: "CLP",
                 })}
-              </h1>
+              </h3>
               <button
                 onClick={() => {
                   incrementarValorPizza(elementFoundById);
@@ -67,7 +67,9 @@ const PizzaDetail = () => {
                   <p className="home__card__cart__paragraph">Pizza Añadida!!</p>
                 ) : (
                   <div className="home__card__cart__detail">
-                    <p className="home__card__cart__paragraph">Añadir</p>
+                    <p className="home__card__cart__paragraph home__card__cart__paragraph__details">
+                      Añadir
+                    </p>
                     <img src="/cart.svg" alt="" />
                   </div>
                 )}

@@ -11,7 +11,7 @@ const Carrito = () => {
     filteredPizzasList,
   } = useContext(CarritoDetailsContext);
 
-  const { disminuirValorPizza } = useContext(ApiContext);
+  const { disminuirValorPizza, incrementarValorPizza } = useContext(ApiContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
@@ -69,7 +69,10 @@ const Carrito = () => {
             <p className="carrito__cantidad">{pizza.cantidad}</p>
             <button
               //Se llama a la función con el objeto asignado como parámetro
-              onClick={() => filteredPizzasList(pizza)}
+              onClick={() => {
+                filteredPizzasList(pizza);
+                incrementarValorPizza(pizza);
+              }}
               className="carrito__btn btn"
               variant="primary"
             >
