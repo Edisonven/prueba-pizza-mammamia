@@ -31,6 +31,7 @@ body {
 
 /*NAVBAR SECTION*/
 .navbar__container {
+  position: relative;
   grid-area: navbar;
   display: flex;
   align-items: center;
@@ -59,7 +60,75 @@ body {
 .navbar__img {
   width: 40px;
 }
+.nav-icon3 {
+  width: 32px;
+  height: 22px;
+  position: relative;
+  margin: 0 auto;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
 
+.nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: var(--color_4);
+  border-radius: 7px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+.nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+.nav-icon3 span:nth-child(2),
+.nav-icon3 span:nth-child(3) {
+  top: 10px;
+}
+.nav-icon3 span:nth-child(4) {
+  top: 20px;
+}
+.nav-icon3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+.nav-icon3.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.nav-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+.navbar__links__container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  right: -100%;
+  top: 100%;
+  background-color: rgba(0, 0, 0, 0.904);
+  width: 300px;
+  height: 400px;
+  transition: all ease-in-out 0.4s;
+  z-index: 20;
+  border-radius: 0 0 0 20px;
+  padding: 0;
+}
+.navbar__links__container.active{
+  right: 0%;
+}
 /*HEADER SECTION*/
 .header__container {
   grid-area: header;
