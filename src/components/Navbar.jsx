@@ -11,6 +11,7 @@ const Navbar = () => {
   const toggleIcon = () => {
     setClicked(!clicked);
   };
+
   return (
     <div className="navbar__container">
       <div className="navbar__logo__section">
@@ -23,9 +24,15 @@ const Navbar = () => {
         className={`navbar__links__container ${clicked ? "active" : ""}`}
         onClick={toggleIcon}
       >
-        <Link className="navbar__carrito__section link__home">Locales</Link>
-        <Link className="navbar__carrito__section link__home">Menu</Link>
-        <Link className="navbar__carrito__section link__home">Promociones</Link>
+        <Link to="#" className="navbar__carrito__section link__home">
+          Locales
+        </Link>
+        <Link to="/" className="navbar__carrito__section link__home">
+          Menu
+        </Link>
+        <Link to="#" className="navbar__carrito__section link__home">
+          Promociones
+        </Link>
         <Link to="/carrito" className="navbar__carrito__section link__home">
           Comprar
           <img className="navbar__carrito__img" src="/cart.svg" alt="" />

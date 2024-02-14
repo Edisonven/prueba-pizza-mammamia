@@ -413,10 +413,11 @@ body {
 
 @media (min-width: 576px) {
   .aplication__container {
-    margin-top: 85px;
+    margin-top: 86px;
   }
   .navbar__container {
     padding: 10px 30px;
+    box-shadow: 5px 5px 5px var(--color_3);
   }
   .nav-icon3 {
     display: none;
