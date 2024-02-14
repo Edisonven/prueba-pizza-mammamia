@@ -362,7 +362,11 @@ body {
     margin: 0 auto;
   }
   .home__card__info__container__details {
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    padding: 10px;
+    gap: 15px;
   }
   .home__card__body {
     max-width: 350px;
@@ -371,9 +375,7 @@ body {
     flex-direction: row;
     gap: 20px;
   }
-  .home__card__details__details {
-    padding-right: 10px;
-  }
+
   .home__card__ingredient__icono__details {
     width: 20px;
   }
@@ -386,8 +388,10 @@ body {
   }
   .home__card__ingredients__container__details {
     padding: 0;
+    margin-bottom: 15px;
   }
   .home__card__description__details {
+    margin: 15px 0;
     padding: 0;
     text-align: left;
   }
