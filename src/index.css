@@ -204,6 +204,9 @@ body {
 .carrito__container {
   padding: 50px 15px;
 }
+.carrito__title {
+  font-size: 1.8rem;
+}
 .carrito__details__container {
   display: flex;
   align-items: center;
@@ -250,6 +253,10 @@ body {
 .carrito__cantidad {
   font-weight: 700;
   margin-bottom: 2px;
+}
+.carrito__pedido__title {
+  margin-top: 40px;
+  text-align: center;
 }
 /*APARTADO FOOTER*/
 .footer__container {
