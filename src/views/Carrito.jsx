@@ -61,7 +61,7 @@ const Carrito = () => {
                 decrement(pizza);
                 disminuirValorPizza(pizza);
               }}
-              className="carrito__btn "
+              className="carrito__btn btn"
               variant="danger"
             >
               -
@@ -70,7 +70,7 @@ const Carrito = () => {
             <button
               //Se llama a la función con el objeto asignado como parámetro
               onClick={() => filteredPizzasList(pizza)}
-              className="carrito__btn "
+              className="carrito__btn btn"
               variant="primary"
             >
               +
@@ -89,7 +89,7 @@ const Carrito = () => {
             })}
           </h1>
         </div>
-        <button className="carrito__btn__total " variant="success">
+        <button className="carrito__btn__total btn" variant="success">
           Ir a pagar
         </button>
       </div>

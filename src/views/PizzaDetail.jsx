@@ -59,7 +59,7 @@ const PizzaDetail = () => {
                   incrementarValorPizza(elementFoundById);
                   filteredPizzasList(elementFoundById);
                 }}
-                className="home__card__btn__details"
+                className="home__card__btn__details btn"
                 variant="success"
                 value={elementFoundById.price}
               >

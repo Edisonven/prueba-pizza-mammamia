@@ -1,8 +1,9 @@
 :root {
-  --color_1: #62b741;
+  --color_1: #88001b;
   --color_2: #fff;
   --color_3: #242424;
   --color_4: #ffffffde;
+  --color_btn_1: #65b741;
 }
 
 * {
@@ -111,6 +112,8 @@ body {
 }
 .home__card__body,
 .home__card__body__details {
+  overflow: hidden;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -118,6 +121,7 @@ body {
   gap: 20px;
   border: 1px solid #a8a6a6;
   margin-bottom: 20px;
+  box-shadow: 5px 5px 10px rgb(204, 204, 204);
 }
 .home__card__title,
 .home__card__title__details {
@@ -164,12 +168,22 @@ body {
   margin-bottom: 20px;
   padding-right: 15px;
 }
-.home__card__btn__viewmore {
-  height: 40px;
+.btn {
+  height: 35px;
+  padding: 5px 15px;
+  background-color: var(--color_btn_1);
+  font-weight: 700;
+  font-size: 1.01rem;
+  color: var(--color_4);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000075;
+  border: none;
+  cursor: pointer;
 }
+
 .home__card__btn__details {
   width: 100%;
-  max-width: 120px;
+  max-width: 160px;
 }
 .home__card__cart__detail {
   display: flex;
@@ -378,8 +392,9 @@ body {
     text-align: left;
   }
   .carrito__container {
+    margin: 0 auto;
+    width: 100%;
     max-width: 1400px;
-    margin: 20px auto;
   }
   .carrito__details {
     gap: 20px;

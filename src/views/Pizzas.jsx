@@ -81,7 +81,7 @@ const Pizzas = () => {
               <button
                 //Función llamada con el id del objeto almacenado como parámetro para encontrar el objeto seleccionado
                 onClick={() => navigateToDetail(pizza.id)}
-                className="home__card__btn home__card__btn__viewmore"
+                className="home__card__btn home__card__btn__viewmore btn"
                 variant="danger"
                 value={pizza.id}
               >
@@ -95,7 +95,7 @@ const Pizzas = () => {
                     filteredPizzasList(pizza);
                     incrementarValorPizza(pizza);
                   }}
-                  className="home__card__btn "
+                  className="home__card__btn btn"
                   variant="success"
                   value={pizza.cantidad}
                 >
