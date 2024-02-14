@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 import Button from "react-bootstrap/Button";
+import { ApiContext } from "../contexts/ContextApi";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
@@ -10,6 +11,8 @@ const Carrito = () => {
     totalCarritoValue,
     filteredPizzasList,
   } = useContext(CarritoDetailsContext);
+
+  const { disminuirValorPizza } = useContext(ApiContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
@@ -55,7 +58,10 @@ const Carrito = () => {
               })}
             </p>
             <Button
-              onClick={() => decrement(pizza)}
+              onClick={() => {
+                decrement(pizza);
+                disminuirValorPizza(pizza);
+              }}
               className="carrito__btn "
               variant="danger"
             >

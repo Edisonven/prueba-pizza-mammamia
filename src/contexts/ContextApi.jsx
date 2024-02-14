@@ -7,6 +7,7 @@ const apiUrl = "/pizzas.json";
 const ApiProvider = ({ children }) => {
   const [apiData, setApiData] = useState([]);
   const [elementFoundById, setElementFoundById] = useState("");
+  const [pizzaValue, setPizzaValue] = useState(0);
   const getApiData = async () => {
     const respuesta = await fetch(apiUrl);
     const data = await respuesta.json();
@@ -22,9 +23,24 @@ const ApiProvider = ({ children }) => {
     getApiData();
   }, []);
 
+  const incrementarValorPizza = (pizza) => {
+    const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
+    apiData[pizzaIndex].cantidad += 1;
+  };
+  const disminuirValorPizza = (pizza) => {
+    const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
+    apiData[pizzaIndex].cantidad -= 1;
+  };
   return (
     <ApiContext.Provider
-      value={{ apiData, setApiData, elementFoundById, setElementFoundById }}
+      value={{
+        apiData,
+        setApiData,
+        elementFoundById,
+        setElementFoundById,
+        incrementarValorPizza,
+        disminuirValorPizza,
+      }}
     >
       {children}
     </ApiContext.Provider>

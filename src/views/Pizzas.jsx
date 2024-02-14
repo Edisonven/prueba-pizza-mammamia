@@ -6,8 +6,13 @@ import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const Pizzas = () => {
   //Estado global que almacena la petición a la api, y cada objeto de la api encontrado dinamicamente por su id
-  const { apiData, elementFoundById, setElementFoundById } =
-    useContext(ApiContext);
+  const {
+    apiData,
+    incrementarValorPizza,
+    elementFoundById,
+    setElementFoundById,
+    disminuirValorPizza,
+  } = useContext(ApiContext);
 
   //Estado que guarda el id del objeto enocntrado dinamicamente
   const [selectedId, setSelectedId] = useState("");
@@ -44,7 +49,7 @@ const Pizzas = () => {
   return (
     <div className="home__container">
       <div className="home__card__container">
-        {apiData.map((pizza) => (
+        {apiData?.map((pizza) => (
           <div key={pizza.id} className="home__card__body">
             <img className="home__card__img" src={pizza.img} alt="" />
             <h3 className="home__card__title">
@@ -88,10 +93,15 @@ const Pizzas = () => {
               <div className="home__card__cart">
                 <Button
                   //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
-                  onClick={() => filteredPizzasList(pizza)}
+                  onClick={() => {
+                    filteredPizzasList(pizza);
+                    incrementarValorPizza(pizza);
+                  }}
                   className="home__card__btn "
                   variant="success"
+                  value={pizza.cantidad}
                 >
+                  {pizza.cantidad}
                   Añadir <img src="/cart.svg" alt="" />
                 </Button>
               </div>
