@@ -9,13 +9,15 @@ function App() {
   return (
     <div className="app__container">
       <Navbar />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pizzadetail/:id" element={<PizzaDetail />} />
-        <Route path="/carrito" element={<Carrito />} />
-      </Routes>
-      <Footer />
+      <div className="aplication__container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pizzadetail/:id" element={<PizzaDetail />} />
+          <Route path="/carrito" element={<Carrito />} />
+        </Routes>
+        <Footer />
+      </div>
     </div>
   );
 }

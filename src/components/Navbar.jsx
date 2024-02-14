@@ -23,9 +23,6 @@ const Navbar = () => {
         className={`navbar__links__container ${clicked ? "active" : ""}`}
         onClick={toggleIcon}
       >
-        <Link className="navbar__carrito__section link__home">
-          Iniciar sesión
-        </Link>
         <Link className="navbar__carrito__section link__home">Locales</Link>
         <Link className="navbar__carrito__section link__home">Menu</Link>
         <Link className="navbar__carrito__section link__home">Promociones</Link>
