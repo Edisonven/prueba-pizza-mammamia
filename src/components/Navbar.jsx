@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="navbar__logo__section">
         <img className="navbar__img" src="/logo3.png" alt="" />
         <Link to="/" className="link__home">
-          <h3 className="navbar__title">Mamma mía!</h3>
+          <h3 className="navbar__title">Mammamía!</h3>
         </Link>
       </div>
       <div>

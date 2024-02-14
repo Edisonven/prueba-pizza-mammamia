@@ -89,7 +89,7 @@ const Pizzas = () => {
               </button>
 
               <div className="home__card__cart">
-                <button
+                <button style={{ backgroundColor: pizza.cantidad ? "#88001b" : ""}}
                   //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
                   onClick={() => {
                     filteredPizzasList(pizza);

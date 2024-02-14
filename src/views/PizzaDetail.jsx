@@ -55,6 +55,7 @@ const PizzaDetail = () => {
                 })}
               </h3>
               <button
+                style={{ backgroundColor: elementFoundById.cantidad ? "#88001b" : "" }}
                 onClick={() => {
                   incrementarValorPizza(elementFoundById);
                   filteredPizzasList(elementFoundById);

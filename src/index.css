@@ -191,7 +191,9 @@ body {
   border: none;
   cursor: pointer;
 }
-
+.btn:hover {
+  opacity: 80%;
+}
 .home__card__cart__detail {
   display: flex;
   align-items: center;
