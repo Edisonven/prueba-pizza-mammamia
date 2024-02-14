@@ -13,6 +13,7 @@
 body {
   font-family: "Roboto Mono", monospace;
   background-color: var(--color_4);
+  color: var(--color_3);
 }
 
 /*APP SECTION*/
@@ -198,7 +199,7 @@ body {
   font-size: 1.8rem;
 }
 .carrito__container {
-  padding: 15px;
+  padding: 50px 15px;
 }
 .carrito__details__container {
   display: flex;
@@ -231,6 +232,9 @@ body {
 .carrito__btn {
   transform: scale(0.8);
   width: 38px;
+}
+.carrito__btn__total {
+  margin-top: 20px;
 }
 .carrito__total__container {
   margin-top: 20px;
