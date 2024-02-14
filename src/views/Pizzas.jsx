@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { ApiContext } from "../contexts/ContextApi";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
@@ -11,7 +10,6 @@ const Pizzas = () => {
     incrementarValorPizza,
     elementFoundById,
     setElementFoundById,
-    disminuirValorPizza,
   } = useContext(ApiContext);
 
   //Estado que guarda el id del objeto enocntrado dinamicamente
@@ -80,7 +78,7 @@ const Pizzas = () => {
               })}
             </h1>
             <div className="home__card__details">
-              <Button
+              <button
                 //Función llamada con el id del objeto almacenado como parámetro para encontrar el objeto seleccionado
                 onClick={() => navigateToDetail(pizza.id)}
                 className="home__card__btn home__card__btn__viewmore"
@@ -88,10 +86,10 @@ const Pizzas = () => {
                 value={pizza.id}
               >
                 Ver Detalle
-              </Button>
+              </button>
 
               <div className="home__card__cart">
-                <Button
+                <button
                   //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
                   onClick={() => {
                     filteredPizzasList(pizza);
@@ -101,9 +99,17 @@ const Pizzas = () => {
                   variant="success"
                   value={pizza.cantidad}
                 >
-                  {pizza.cantidad}
-                  Añadir <img src="/cart.svg" alt="" />
-                </Button>
+                  {pizza.cantidad >= 1 ? (
+                    <p className="home__card__cart__paragraph">
+                      Pizza Añadida!!
+                    </p>
+                  ) : (
+                    <div className="home__card__cart__detail">
+                      <p className="home__card__cart__paragraph">Añadir</p>
+                      <img src="/cart.svg" alt="" />
+                    </div>
+                  )}
+                </button>
               </div>
             </div>
           </div>

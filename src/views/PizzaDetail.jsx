@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { ApiContext } from "../contexts/ContextApi";
-import Button from "react-bootstrap/Button";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
 
 const PizzaDetail = () => {
   //Estado global llamado para mapear los resultados de la vista detalle
-  const { elementFoundById } = useContext(ApiContext);
+  const { elementFoundById, incrementarValorPizza } = useContext(ApiContext);
 
   //Función global llamada para ser ejecutada en botón de vista de detalles
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
@@ -55,16 +54,24 @@ const PizzaDetail = () => {
                   currency: "CLP",
                 })}
               </h1>
-              <Button
+              <button
                 onClick={() => {
+                  incrementarValorPizza(elementFoundById);
                   filteredPizzasList(elementFoundById);
                 }}
                 className="home__card__btn__details"
                 variant="success"
                 value={elementFoundById.price}
               >
-                Añadir <img src="/cart.svg" alt="" />
-              </Button>
+                {elementFoundById.cantidad >= 1 ? (
+                  <p className="home__card__cart__paragraph">Pizza Añadida!!</p>
+                ) : (
+                  <div className="home__card__cart__detail">
+                    <p className="home__card__cart__paragraph">Añadir</p>
+                    <img src="/cart.svg" alt="" />
+                  </div>
+                )}
+              </button>
             </div>
           </div>
         </div>

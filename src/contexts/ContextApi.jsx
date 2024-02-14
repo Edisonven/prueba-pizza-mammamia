@@ -7,7 +7,6 @@ const apiUrl = "/pizzas.json";
 const ApiProvider = ({ children }) => {
   const [apiData, setApiData] = useState([]);
   const [elementFoundById, setElementFoundById] = useState("");
-  const [pizzaValue, setPizzaValue] = useState(0);
   const getApiData = async () => {
     const respuesta = await fetch(apiUrl);
     const data = await respuesta.json();

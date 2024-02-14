@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
-import Button from "react-bootstrap/Button";
 import { ApiContext } from "../contexts/ContextApi";
 
 const Carrito = () => {
@@ -57,7 +56,7 @@ const Carrito = () => {
                 currency: "CLP",
               })}
             </p>
-            <Button
+            <button
               onClick={() => {
                 decrement(pizza);
                 disminuirValorPizza(pizza);
@@ -66,16 +65,16 @@ const Carrito = () => {
               variant="danger"
             >
               -
-            </Button>
+            </button>
             <p className="carrito__cantidad">{pizza.cantidad}</p>
-            <Button
+            <button
               //Se llama a la función con el objeto asignado como parámetro
               onClick={() => filteredPizzasList(pizza)}
               className="carrito__btn "
               variant="primary"
             >
               +
-            </Button>
+            </button>
           </div>
         </div>
       ))}
@@ -90,9 +89,9 @@ const Carrito = () => {
             })}
           </h1>
         </div>
-        <Button className="carrito__btn__total " variant="success">
+        <button className="carrito__btn__total " variant="success">
           Ir a pagar
-        </Button>
+        </button>
       </div>
     </div>
   );
