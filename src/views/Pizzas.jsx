@@ -12,7 +12,7 @@ const Pizzas = () => {
   //Estado que guarda el id del objeto enocntrado dinamicamente
   const [selectedId, setSelectedId] = useState("");
 
-  //Función que cuentra el objeto por su id y lo almacena
+  //Función que encuentra el objeto por su id y lo almacena
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
 
   //Hook que redirige programáticamente
@@ -40,7 +40,7 @@ const Pizzas = () => {
   useEffect(() => {
     setElementFoundById("");
   }, []);
-  console.log(apiData);
+
   return (
     <div className="home__container">
       <div className="home__card__container">

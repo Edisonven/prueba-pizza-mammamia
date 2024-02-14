@@ -14,13 +14,16 @@ const Carrito = () => {
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
     const pizzaIndex = pizzasSeleccionadas.findIndex((p) => p.id === pizza.id);
-
+    //Evalúa si econtro el índice buscado por su id
     if (pizzaIndex !== -1) {
+      //si se cumple la condición crea una copia del array pizzas seleccionadas
       const updatedPizzas = [...pizzasSeleccionadas];
-
+      //Si la propiedad del objeto cuyo índice encontrado es igual a 1 ejecuta la lógica siguiente
       if (pizzasSeleccionadas[pizzaIndex].cantidad === 1) {
+        // Elimina el objeto del arreglo cuando la cantidad es 0
         updatedPizzas.splice(pizzaIndex, 1);
       } else {
+        //si la cantidad supera el 1 va disminuyendo dicha cantidad de productos en 1
         updatedPizzas[pizzaIndex] = {
           ...pizzasSeleccionadas[pizzaIndex],
           cantidad: pizzasSeleccionadas[pizzaIndex].cantidad - 1,
