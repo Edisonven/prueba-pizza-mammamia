@@ -90,6 +90,7 @@ body {
 }
 .link__home {
   text-decoration: none;
+  font-weight: 700;
 }
 .link__home:hover {
   opacity: 70%;
@@ -198,9 +199,6 @@ body {
 }
 
 /*CARRITO SECTION*/
-.navbar__title {
-  font-size: 1.8rem;
-}
 .carrito__container {
   padding: 50px 15px;
 }
@@ -332,6 +330,9 @@ body {
 @media (min-width: 576px) {
   .navbar__container {
     padding: 10px 30px;
+  }
+  .navbar__title {
+    font-size: 1.8rem;
   }
   .header__img {
     height: 300px;
