@@ -55,7 +55,7 @@ const Pizzas = () => {
             </h3>
             <div className="home__card__ingredients__container">
               <h5 className="home__card__ingredients__title">Ingredientes:</h5>
-              {pizza.ingredients.map((ingredient, index) => {
+              {pizza.ingredients?.map((ingredient, index) => {
                 return (
                   <ul key={index} className="home__card__ingredients">
                     <li className="home__card__ingredient">

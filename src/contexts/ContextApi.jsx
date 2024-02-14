@@ -8,13 +8,17 @@ const ApiProvider = ({ children }) => {
   const [apiData, setApiData] = useState([]);
   const [elementFoundById, setElementFoundById] = useState("");
   const getApiData = async () => {
-    const respuesta = await fetch(apiUrl);
-    const data = await respuesta.json();
-    setApiData(
-      data.map((pizza) => {
-        return { ...pizza, cantidad: 0 };
-      })
-    );
+    try {
+      const respuesta = await fetch(apiUrl);
+      const data = await respuesta.json();
+      setApiData(
+        data.map((pizza) => {
+          return { ...pizza, cantidad: 0 };
+        })
+      );
+    } catch (error) {
+      <p>hola</p>;
+    }
   };
 
   //Efecto secundario que se ejetuca al montar el componente donde sea llamado

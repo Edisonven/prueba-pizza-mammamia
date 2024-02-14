@@ -46,7 +46,7 @@ const Carrito = () => {
           comprar
         </h3>
       ) : (
-        pizzasSeleccionadas.map((pizza) => (
+        pizzasSeleccionadas?.map((pizza) => (
           <div key={pizza.id} className="carrito__details__container">
             <div className="carrito__details">
               <img className="carrito__details__img" src={pizza.img} alt="" />
