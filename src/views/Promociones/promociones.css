@@ -38,10 +38,30 @@
   font-style: normal;
   margin-bottom: 8px;
 }
+.promociones__paragraph__desc4 {
+  color: #ff0000;
+}
 .promociones__title__desc {
   font-weight: 900;
   font-size: 1.2rem;
 }
 .promociones__value {
   margin-top: 20px;
+}
+
+@media (min-width: 576px) {
+  .promociones__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .promocion__container {
+    width: 500px;
+  }
+  .promociones__img {
+    width: 180px;
+  }
 }
