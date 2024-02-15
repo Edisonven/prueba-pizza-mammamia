@@ -6,6 +6,7 @@ import ApiProvider from "./contexts/ContextApi.jsx";
 import { BrowserRouter } from "react-router-dom";
 import CarritoDetailsPovider from "./contexts/ContextCarritoDetails.jsx";
 import LocalesProvider from "./contexts/ContextLocales.jsx";
+import PromocionesProvider from "./contexts/ContextPomociones.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ApiProvider>
         <LocalesProvider>
           <CarritoDetailsPovider>
-            <App />
+            <PromocionesProvider>
+              <App />
+            </PromocionesProvider>
           </CarritoDetailsPovider>
         </LocalesProvider>
       </ApiProvider>
