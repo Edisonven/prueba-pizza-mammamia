@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import NavbarHambur from "../../components/NavbarHambur/NavbarHambur.jsx";
@@ -8,10 +8,26 @@ const Navbar = () => {
   //Contexto donde se maneja el estado global que actualiza el total a pagar del carrito
   const { totalCarritoValue } = useContext(CarritoDetailsContext);
   const [clicked, setClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
 
   const toggleIcon = () => {
-    setClicked(!clicked);
+    if (isMobile) {
+      setClicked(!clicked);
+    }
   };
+
+  // Actualizar el estado de isMobile cuando cambie el tamaño de la ventana
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 576);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <nav className="navbar__container">

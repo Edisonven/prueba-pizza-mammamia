@@ -19,6 +19,7 @@
 }
 .navbar__link {
   text-decoration: none;
+  font-weight: 900;
 }
 .navbar__carrito__section {
   display: flex;
@@ -44,7 +45,7 @@
   gap: 40px;
   right: -100%;
   top: 100%;
-  background-color: rgba(0, 0, 0, 0.904);
+  background-color: #88001bb6;
   width: 300px;
   height: 400px;
   transition: all ease-in-out 0.4s;

@@ -16,7 +16,6 @@ const LocalesProvider = ({ children }) => {
     }
   };
 
-  console.log(localesData);
   //Efecto secundario que se ejetuca al montar el componente donde sea llamado
   useEffect(() => {
     getApiData();
