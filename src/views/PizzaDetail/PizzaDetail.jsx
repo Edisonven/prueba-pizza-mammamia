@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ApiContext } from "../../contexts/ContextApi";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
-import "../../views/PizzaDetail/pizzadetail.css"
+import "../../views/PizzaDetail/pizzadetail.css";
 
 const PizzaDetail = () => {
   //Estado global llamado para mapear los resultados de la vista detalle
@@ -33,7 +33,10 @@ const PizzaDetail = () => {
               </h5>
               {elementFoundById.ingredients.map((ingredient, index) => {
                 return (
-                  <ul key={index} className="pizzas__card__ingredients__details">
+                  <ul
+                    key={index}
+                    className="pizzas__card__ingredients__details"
+                  >
                     <li className="pizzas__card__ingredient__details">
                       <img
                         className="pizzas__card__ingredient__icono__details"
@@ -56,7 +59,10 @@ const PizzaDetail = () => {
                 })}
               </h3>
               <button
-                style={{ backgroundColor: elementFoundById.cantidad ? "#88001b" : "" }}
+                style={{
+                  backgroundColor: elementFoundById.cantidad ? "#88001b" : "",
+                  color: elementFoundById.cantidad ? "#ffffffde" : "",
+                }}
                 onClick={() => {
                   incrementarValorPizza(elementFoundById);
                   filteredPizzasList(elementFoundById);
@@ -66,13 +72,15 @@ const PizzaDetail = () => {
                 value={elementFoundById.price}
               >
                 {elementFoundById.cantidad >= 1 ? (
-                  <p className="pizzas__card__cart__paragraph">!En el carrito!</p>
+                  <p className="pizzas__card__cart__paragraph">
+                    !En el carrito!
+                  </p>
                 ) : (
                   <div className="pizzas__card__cart__detail">
                     <p className="pizzas__card__cart__paragraph pizzas__card__cart__paragraph__details">
                       Añadir
                     </p>
-                    <img src="/cart.svg" alt="" />
+                    <span class="material-symbols-outlined">shopping_cart</span>
                   </div>
                 )}
               </button>

@@ -53,21 +53,6 @@
 .pizzas__Card__line {
   width: 100%;
 }
-.btn {
-  height: 35px;
-  padding: 5px 15px;
-  background-color: var(--color_btn_1);
-  font-weight: 700;
-  font-size: 1.01rem;
-  color: var(--color_4);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px #00000075;
-  border: none;
-  cursor: pointer;
-}
-.btn:hover {
-  opacity: 80%;
-}
 
 @media (min-width: 576px) {
   .pizzas__card__container {

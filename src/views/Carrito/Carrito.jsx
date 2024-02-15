@@ -67,7 +67,6 @@ const Carrito = () => {
                 )}
               </p>
               <button
-                style={{ backgroundColor: "red" }}
                 onClick={() => {
                   decrement(pizza);
                   disminuirValorPizza(pizza);

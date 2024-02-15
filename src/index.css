@@ -32,3 +32,29 @@ body {
 .aplication__container {
   margin-top: 57px;
 }
+
+/*BOTONES*/
+.btn {
+  height: 35px;
+  padding: 5px 15px;
+  background-color: var(--color_4);
+  font-weight: 700;
+  font-size: 1.01rem;
+  color: var(--color_3);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #00000075;
+  border: 1px solid var(--color_3);
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 80%;
+  background-color: var(--color_1);
+  color: var(--color_4);
+}
+.pizzas__cart__icon:hover {
+  fill: var(--color_4);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
