@@ -4,9 +4,10 @@
 .local__container {
   border: 1px solid var(--color_5);
   padding: 15px;
-  margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px var(--color_5);
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 .locales__title {
   text-align: center;
@@ -30,6 +31,23 @@
 .local__paragraph__desc {
   line-height: 18px;
 }
-.local__number {
+.local__phone__container,
+.local__direction__container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.local__paragraph__number {
+  font-weight: 900;
   color: var(--color_1);
+}
+@media (min-width: 576px) {
+  .locales__title {
+    font-size: 1.8rem;
+  }
+  .local__container {
+    max-width: 1200px;
+    margin-bottom: 30px;
+  }
 }
