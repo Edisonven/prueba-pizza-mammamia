@@ -105,7 +105,7 @@ const Pizzas = () => {
                 >
                   {pizza.cantidad >= 1 ? (
                     <p className="pizzas__card__cart__paragraph">
-                      Pizza Añadida!!
+                      ¡En el carrito!
                     </p>
                   ) : (
                     <div className="pizzas__card__cart__detail">

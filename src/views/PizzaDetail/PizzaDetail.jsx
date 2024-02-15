@@ -66,7 +66,7 @@ const PizzaDetail = () => {
                 value={elementFoundById.price}
               >
                 {elementFoundById.cantidad >= 1 ? (
-                  <p className="pizzas__card__cart__paragraph">Pizza Añadida!!</p>
+                  <p className="pizzas__card__cart__paragraph">!En el carrito!</p>
                 ) : (
                   <div className="pizzas__card__cart__detail">
                     <p className="pizzas__card__cart__paragraph pizzas__card__cart__paragraph__details">
