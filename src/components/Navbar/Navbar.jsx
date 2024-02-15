@@ -7,9 +7,14 @@ import "../../components/Navbar/navbar.css";
 const Navbar = () => {
   //Contexto donde se maneja el estado global que actualiza el total a pagar del carrito
   const { totalCarritoValue } = useContext(CarritoDetailsContext);
+
+  //Estado que maneja el valor del click al presionar el menu hamburguesa
   const [clicked, setClicked] = useState(false);
+
+  //Estado que maneja si la ventana es mayor a 576px para no activar la función que abre el menu hamburguesa
   const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
 
+  //Función que evalúa el valor del estado para invertir su valor actual
   const toggleIcon = () => {
     if (isMobile) {
       setClicked(!clicked);
