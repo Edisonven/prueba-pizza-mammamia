@@ -40,7 +40,7 @@ const Navbar = () => {
     <nav className="navbar__container">
       <div className="navbar__logo__section">
         <img className="navbar__img" src="/logo3.png" alt="" />
-        <Link to="/" className="navbar__link">
+        <Link to="/home" className="navbar__link">
           <h3 className="navbar__title">Mammamía!</h3>
         </Link>
       </div>
@@ -49,12 +49,12 @@ const Navbar = () => {
         onClick={toggleIcon}
       >
         <NavLink
-          to="/"
+          to="/home"
           className={`navbar__carrito__section navbar__link ${setActiveClass}`}
         >
           Menu
         </NavLink>
-        <NavLink to="locales" className="navbar__carrito__section navbar__link">
+        <NavLink to="/locales" className="navbar__carrito__section navbar__link">
           Locales
         </NavLink>
         <NavLink

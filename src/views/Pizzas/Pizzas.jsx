@@ -35,7 +35,7 @@ const Pizzas = () => {
   useEffect(() => {
     //condicional que evalua que el contenido de selectedId y elementFoundById.id sea distinto de indefinido para recién redirigir a la ruta definida
     if (selectedId && elementFoundById.id !== undefined) {
-      navigate(`/pizzadetail/${elementFoundById.id}`);
+      navigate(`/pizza/${elementFoundById.id}`);
     }
     //Dependecia que cuando cambia ejecuta el bloque del hook useEffect
   }, [elementFoundById]);

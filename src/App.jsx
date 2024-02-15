@@ -15,8 +15,8 @@ function App() {
       <div className="aplication__container">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/pizzadetail/:id" element={<PizzaDetail />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/pizza/:id" element={<PizzaDetail />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/Locales" element={<Locales />} />
           <Route path="/promociones" element={<Promociones />} />
