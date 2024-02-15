@@ -9,10 +9,13 @@ const PromocionesProvider = ({ children }) => {
   const getApiData = async () => {
     try {
       const respuesta = await fetch(apiUrl);
+      if (!respuesta.ok) {
+        throw new Error("Error al obtener los datos de la API");
+      }
       const data = await respuesta.json();
       setPromociones(data);
     } catch (error) {
-      <p>hola</p>;
+      console.error("Error al obtener los datos de la API:", error);
     }
   };
 

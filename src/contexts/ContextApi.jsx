@@ -10,6 +10,9 @@ const ApiProvider = ({ children }) => {
   const getApiData = async () => {
     try {
       const respuesta = await fetch(apiUrl);
+      if (!respuesta.ok) {
+        throw new Error("Error al obtener los datos de la API");
+      }
       const data = await respuesta.json();
       setApiData(
         data.map((pizza) => {
@@ -17,7 +20,7 @@ const ApiProvider = ({ children }) => {
         })
       );
     } catch (error) {
-      <p>hola</p>;
+      console.error("Error al obtener los datos de la API:", error);
     }
   };
 
@@ -34,7 +37,7 @@ const ApiProvider = ({ children }) => {
     const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
     apiData[pizzaIndex].cantidad -= 1;
   };
-  
+
   return (
     <ApiContext.Provider
       value={{
