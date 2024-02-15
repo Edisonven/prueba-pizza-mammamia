@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Promo 1",
+    "type": "2x1",
+    "desc1": "1 pizza mediana Peperonni",
+    "desc2": "1 pizza mediana Napolitana",
+    "desc3": "1 bebida de 2 litros",
+    "desc4": "",
+    "value": 19990,
+    "image": "/pizza_promo.jpg"
+  },
+  {
+    "title": "Promo 2",
+    "type": "2x1",
+    "desc1": "1 pizza grande Peperonni",
+    "desc2": "1 pizza mediana Pollo BBQ",
+    "desc3": "1 bebida de 3 litros",
+    "desc4": "",
+    "value": 24990,
+    "image": "/pizza_promo.jpg"
+  },
+  {
+    "title": "Promo 3",
+    "type": "Familiar",
+    "desc1": "1 pizza Familiar",
+    "desc2": "1 papas medianas",
+    "desc3": "1 bebida de 3 litros",
+    "desc4": "Elige tus ingredientes",
+    "value": 21990,
+    "image": "/pizza_promo.jpg"
+  },
+  {
+    "title": "Promo 4",
+    "type": "Dúo Familiar",
+    "desc1": "1 pizza Familiar Todas las carnes",
+    "desc2": "1 pizza Familiar Vegetariana",
+    "desc3": "1 bebida de 3 litros",
+    "desc4": "",
+    "value": 26990,
+    "image": "/pizza_promo.jpg"
+  },
+  {
+    "title": "Promo 5",
+    "type": "2x1",
+    "desc1": "1 pizza grande",
+    "desc2": "1 pizza mediana",
+    "desc3": "1 bebida de 2.5 litros",
+    "desc4": "Elige tus ingredientes",
+    "value": 23990,
+    "image": "/pizza_promo.jpg"
+  },
+  {
+    "title": "Promo 6",
+    "type": "2x1",
+    "desc1": "1 pizza pequeña",
+    "desc2": "1 pizza mediana",
+    "desc3": "1 bebida de 2 litros",
+    "desc4": "Elige tus ingredientes",
+    "value": 16990,
+    "image": "/pizza_promo.jpg"
+  }
+]
