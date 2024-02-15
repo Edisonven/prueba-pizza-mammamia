@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import NavbarHambur from "../../components/NavbarHambur/NavbarHambur.jsx";
 import "../../components/Navbar/navbar.css";
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
+  //Clase para los links que están activos
+  const setActiveClass = ({ isActive }) => (isActive ? "active" : "");
   //Contexto donde se maneja el estado global que actualiza el total a pagar del carrito
   const { totalCarritoValue } = useContext(CarritoDetailsContext);
 
@@ -46,16 +48,25 @@ const Navbar = () => {
         className={`navbar__links__container ${clicked ? "active" : ""}`}
         onClick={toggleIcon}
       >
-        <Link to="/" className="navbar__carrito__section navbar__link">
+        <NavLink
+          to="/"
+          className={`navbar__carrito__section navbar__link ${setActiveClass}`}
+        >
           Menu
-        </Link>
-        <Link to="locales" className="navbar__carrito__section navbar__link">
+        </NavLink>
+        <NavLink to="locales" className="navbar__carrito__section navbar__link">
           Locales
-        </Link>
-        <Link to="/promociones" className="navbar__carrito__section navbar__link">
+        </NavLink>
+        <NavLink
+          to="/promociones"
+          className="navbar__carrito__section navbar__link"
+        >
           Promociones
-        </Link>
-        <Link to="/carrito" className="navbar__carrito__section navbar__link">
+        </NavLink>
+        <NavLink
+          to="/carrito"
+          className="navbar__carrito__section navbar__link"
+        >
           Comprar
           <img className="navbar__carrito__img" src="/cart.svg" alt="" />
           <span className="navbar__carrito__value">
@@ -65,7 +76,7 @@ const Navbar = () => {
               currency: "CLP",
             })}
           </span>
-        </Link>
+        </NavLink>
       </div>
       <div>
         <NavbarHambur clicked={clicked} toggleIcon={toggleIcon} />
