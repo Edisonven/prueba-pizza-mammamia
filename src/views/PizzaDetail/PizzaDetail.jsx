@@ -80,7 +80,7 @@ const PizzaDetail = () => {
                     <p className="pizzas__card__cart__paragraph pizzas__card__cart__paragraph__details">
                       Añadir
                     </p>
-                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span className="material-symbols-outlined">shopping_cart</span>
                   </div>
                 )}
               </button>

@@ -113,7 +113,7 @@ const Pizzas = () => {
                   ) : (
                     <div className="pizzas__card__cart__detail">
                       <p className="pizzas__card__cart__paragraph">Añadir</p>
-                      <span class="material-symbols-outlined">
+                      <span className="material-symbols-outlined">
                         shopping_cart
                       </span>
                     </div>
