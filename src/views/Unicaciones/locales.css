@@ -1,0 +1,35 @@
+.locales__container {
+  padding: 15px;
+}
+.local__container {
+  border: 1px solid var(--color_5);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px var(--color_5);
+}
+.locales__title {
+  text-align: center;
+  margin: 20px 0 30px;
+}
+.local__city__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.local__img {
+  width: 50px;
+}
+.local__paragraph {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.local__paragraph__desc {
+  line-height: 18px;
+}
+.local__number {
+  color: var(--color_1);
+}

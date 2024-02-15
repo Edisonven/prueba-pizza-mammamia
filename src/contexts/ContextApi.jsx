@@ -34,6 +34,7 @@ const ApiProvider = ({ children }) => {
     const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
     apiData[pizzaIndex].cantidad -= 1;
   };
+  
   return (
     <ApiContext.Provider
       value={{
