@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar__container">
+    <nav className="navbar__container">
       <div className="navbar__logo__section">
         <img className="navbar__img" src="/logo3.png" alt="" />
         <Link to="/" className="navbar__link">
@@ -25,11 +25,11 @@ const Navbar = () => {
         className={`navbar__links__container ${clicked ? "active" : ""}`}
         onClick={toggleIcon}
       >
-        <Link to="locales" className="navbar__carrito__section navbar__link">
-          Locales
-        </Link>
         <Link to="/" className="navbar__carrito__section navbar__link">
           Menu
+        </Link>
+        <Link to="locales" className="navbar__carrito__section navbar__link">
+          Locales
         </Link>
         <Link to="#" className="navbar__carrito__section navbar__link">
           Promociones
@@ -49,7 +49,7 @@ const Navbar = () => {
       <div>
         <NavbarHambur clicked={clicked} toggleIcon={toggleIcon} />
       </div>
-    </div>
+    </nav>
   );
 };
 

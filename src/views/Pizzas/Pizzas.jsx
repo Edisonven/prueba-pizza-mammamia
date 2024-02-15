@@ -46,7 +46,7 @@ const Pizzas = () => {
   }, []);
 
   return (
-    <div className="pizzas__container">
+    <section className="pizzas__container">
       <div className="pizzas__card__container">
         {apiData?.map((pizza) => (
           <div key={pizza.id} className="pizzas__card__body">
@@ -119,7 +119,7 @@ const Pizzas = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

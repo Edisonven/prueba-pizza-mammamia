@@ -39,7 +39,7 @@ const Carrito = () => {
   };
 
   return (
-    <div className="carrito__container">
+    <section className="carrito__container">
       <h4 className="carrito__title">Detalles del pedido</h4>
       {pizzasSeleccionadas.length < 1 ? (
         <h3 className="carrito__pedido__title">
@@ -108,7 +108,7 @@ const Carrito = () => {
           Ir a pagar
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

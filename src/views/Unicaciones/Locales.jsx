@@ -6,7 +6,7 @@ const Locales = () => {
   const { localesData } = useContext(LocalesContext);
 
   return (
-    <div className="locales__container">
+    <section className="locales__container">
       <h2 className="locales__title">Nuestros locales</h2>
       {localesData?.map((local) => (
         <div key={local.id} className="local__container">
@@ -31,7 +31,7 @@ const Locales = () => {
           </p>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

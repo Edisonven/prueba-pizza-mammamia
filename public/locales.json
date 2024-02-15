@@ -3,7 +3,7 @@
     "id": 1,
     "city": "Santiago",
     "adress": "Camiño Canales, 887",
-    "number": "2-23548621",
+    "number": "2-235486333",
     "desc": "Todos los días del año. Domingo a Jueves de 11:30 a 23 hrs. Viernes, Sábados y vísperas de feriados de 11:30 a.m. a 01:00 a.m"
   },
   {
@@ -17,28 +17,28 @@
     "id": 3,
     "city": "Valparaíso",
     "adress": "Paseo Óscar, 4",
-    "number": "2-23316621",
+    "number": "2-23316481",
     "desc": "Todos los días del año. Domingo a Jueves de 11:30 a 23 hrs. Viernes, Sábados y vísperas de feriados de 11:30 a.m. a 01:00 a.m"
   },
   {
     "id": 4,
     "city": "Las condes",
     "adress": "Camino Gerard, 55",
-    "number": "2-23316584",
+    "number": "2-23316951",
     "desc": "Todos los días del año. Domingo a Jueves de 11:30 a 23 hrs. Viernes, Sábados y vísperas de feriados de 11:30 a.m. a 01:00 a.m"
   },
   {
     "id": 5,
     "city": "Ñuñoa",
     "adress": "Avenida Jan, 84",
-    "number": "2-27851584",
+    "number": "2-27851316",
     "desc": "Todos los días del año. Domingo a Jueves de 11:30 a 23 hrs. Viernes, Sábados y vísperas de feriados de 11:30 a.m. a 01:00 a.m"
   },
   {
     "id": 6,
     "city": "San bernardo",
     "adress": "Praza Marco, 699",
-    "number": "2-27845684",
+    "number": "2-27845889",
     "desc": "Todos los días del año. Domingo a Jueves de 11:30 a 23 hrs. Viernes, Sábados y vísperas de feriados de 11:30 a.m. a 01:00 a.m"
   }
 ]

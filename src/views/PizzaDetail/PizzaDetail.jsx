@@ -11,7 +11,7 @@ const PizzaDetail = () => {
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
 
   return (
-    <div className="pizzas__card__container__details">
+    <section className="pizzas__card__container__details">
       {elementFoundById ? (
         <div key={elementFoundById.id} className="pizzas__card__body__details">
           <img
@@ -80,7 +80,7 @@ const PizzaDetail = () => {
           </div>
         </div>
       ) : null}
-    </div>
+    </section>
   );
 };
 
