@@ -21,6 +21,11 @@
   text-decoration: none;
   font-weight: 900;
   font-size: 1.3rem;
+  transition: linear 0.2s;
+}
+.navbar__link:hover {
+  opacity: 80%;
+  transform: scale(1.1);
 }
 .navbar__carrito__section {
   display: flex;
@@ -81,7 +86,7 @@
   .navbar__title {
     font-size: 1.8rem;
   }
-  .navbar__link{
+  .navbar__link {
     font-size: 1.1rem;
   }
   .header__img {

@@ -10,6 +10,10 @@
   box-shadow: 5px 5px 5px var(--color_5);
   margin: 0 auto;
   margin-bottom: 20px;
+  transition: transform ease-in-out 0.2s;
+}
+.promocion__container:hover {
+  transform: scale(1.02);
 }
 .promociones__title {
   text-align: center;
