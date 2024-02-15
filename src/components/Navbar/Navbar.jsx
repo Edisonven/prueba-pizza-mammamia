@@ -52,7 +52,7 @@ const Navbar = () => {
         <Link to="locales" className="navbar__carrito__section navbar__link">
           Locales
         </Link>
-        <Link to="#" className="navbar__carrito__section navbar__link">
+        <Link to="/promociones" className="navbar__carrito__section navbar__link">
           Promociones
         </Link>
         <Link to="/carrito" className="navbar__carrito__section navbar__link">
