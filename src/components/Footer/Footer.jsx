@@ -8,15 +8,15 @@ const Footer = () => {
         <div className="footer__section">
           <h4 className="footer__section__title">Ayuda:</h4>
           <div className="footer__section__list">
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">Centro de ayuda</p>
             </Link>
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">
                 Formulario de contacto
               </p>
             </Link>
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">Reclamos</p>
             </Link>
           </div>
@@ -24,13 +24,13 @@ const Footer = () => {
         <div className="footer__section">
           <h4 className="footer__section__title">Nosotros:</h4>
           <div className="footer__section__list">
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">Quiénes somos</p>
             </Link>
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">Web</p>
             </Link>
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">Encuéntranos</p>
             </Link>
           </div>
@@ -38,10 +38,10 @@ const Footer = () => {
         <div className="footer__section">
           <h4 className="footer__section__title">Complementos:</h4>
           <div className="footer__section__list">
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">APP Android</p>
             </Link>
-            <Link href="#" className="footer__section__link">
+            <Link to="#" className="footer__section__link">
               <p className="footer__section__link__text">APP IOs</p>
             </Link>
           </div>
@@ -77,7 +77,7 @@ const Footer = () => {
             <div className="footer__social__redes">
               <Link
                 className="footer__social__icon__redes footer__social__icon--facebook"
-                href="#"
+                to="#"
               >
                 <img
                   src="/facebook.svg"
@@ -87,7 +87,7 @@ const Footer = () => {
               </Link>
               <Link
                 className="footer__social__icon__redes footer__social__icon--instagram"
-                href="#"
+                to="#"
               >
                 <img
                   src="/instagram.svg"

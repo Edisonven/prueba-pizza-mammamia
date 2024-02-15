@@ -7,6 +7,7 @@ import Carrito from "./views/Carrito/Carrito.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Locales from "./views/Unicaciones/Locales.jsx";
 import Promociones from "./views/Promociones/Promociones.jsx";
+
 function App() {
   return (
     <div className="app__container">

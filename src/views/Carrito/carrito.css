@@ -35,6 +35,8 @@
 .carrito__btn {
   transform: scale(0.8);
   width: 38px;
+  height: 38px;
+  border-radius: 50%;
 }
 .carrito__btn__total {
   margin-top: 20px;
