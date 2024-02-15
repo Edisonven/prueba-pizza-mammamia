@@ -1,0 +1,95 @@
+.navbar__container {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  grid-area: navbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: var(--color_1);
+}
+.navbar__title {
+  color: var(--color_2);
+}
+.navbar__logo__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar__link {
+  text-decoration: none;
+}
+.navbar__carrito__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color_2);
+}
+.navbar__carrito__value {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.navbar__img {
+  width: 40px;
+}
+
+.navbar__links__container {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  right: -100%;
+  top: 100%;
+  background-color: rgba(0, 0, 0, 0.904);
+  width: 300px;
+  height: 400px;
+  transition: all ease-in-out 0.4s;
+  z-index: 20;
+  border-radius: 0 0 0 20px;
+  padding: 0;
+}
+.navbar__links__container.active {
+  right: 0%;
+}
+
+@media (min-width: 576px) {
+  .navbar__container {
+    padding: 10px 30px;
+    box-shadow: 5px 5px 5px var(--color_3);
+  }
+  .nav-icon3 {
+    display: none;
+  }
+  .navbar__links__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    position: static;
+    background-color: transparent;
+    padding: 10px;
+    transition: none;
+  }
+  .navbar__title {
+    font-size: 1.8rem;
+  }
+  .header__img {
+    height: 300px;
+    object-fit: cover;
+  }
+  .navbar__carrito__value {
+    font-size: 1.4rem;
+  }
+  .navbar__carrito__img {
+    width: 30px;
+  }
+  .navbar__img {
+    width: 70px;
+  }
+}

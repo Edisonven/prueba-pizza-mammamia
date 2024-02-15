@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
-import { ApiContext } from "../contexts/ContextApi";
+import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
+import { ApiContext } from "../../contexts/ContextApi";
+import "../../views/Carrito/carrito.css";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito

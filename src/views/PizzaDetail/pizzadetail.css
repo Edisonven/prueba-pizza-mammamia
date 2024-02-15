@@ -1,0 +1,145 @@
+.pizzas__card__description__details {
+  text-align: center;
+  padding: 0 30px;
+}
+.pizzas__card__img__details {
+  width: 100%;
+}
+.pizzas__card__container__details {
+  padding: 20px;
+}
+.pizzas__card__body__details {
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #e2dfdf;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 10px rgb(204, 204, 204);
+}
+.pizzas__card__title__details {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+.pizzas__card__title__details {
+  padding-bottom: 20px;
+}
+.pizzas__card__price {
+  text-align: center;
+  width: 100%;
+}
+
+.pizzas__card__ingredients__container__details {
+  padding: 18px 40px;
+}
+
+.pizzas__card__ingredients__title__details {
+  margin-bottom: 20px;
+}
+
+.pizzas__card__ingredient__details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.pizzas__card__ingredient__icono__details {
+  width: 18px;
+}
+.pizzas__Card__line {
+  width: 100%;
+}
+.pizzas__card__details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.pizzas__card__details__details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.btn {
+  height: 35px;
+  padding: 5px 15px;
+  background-color: var(--color_btn_1);
+  font-weight: 700;
+  font-size: 1.01rem;
+  color: var(--color_4);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000075;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 80%;
+}
+.pizzas__card__cart__detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 576px) {
+  .pizzas__card__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .pizzas__card__container__details {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .pizzas__card__info__container__details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    gap: 15px;
+  }
+  .pizzas__card__body {
+    max-width: 350px;
+  }
+  .pizzas__card__body__details {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .pizzas__card__ingredient__icono__details {
+    width: 20px;
+  }
+  .pizzas__card__img__details {
+    max-width: 50%;
+    height: 100%;
+  }
+  .pizzas__card__price__details {
+    text-align: left;
+  }
+  .pizzas__card__ingredients__container__details {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .pizzas__card__description__details {
+    margin: 15px 0;
+    padding: 0;
+    text-align: left;
+  }
+}

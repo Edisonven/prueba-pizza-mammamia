@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { ApiContext } from "../contexts/ContextApi";
-import { CarritoDetailsContext } from "../contexts/ContextCarritoDetails";
+import { ApiContext } from "../../contexts/ContextApi";
+import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
+import "../../views/PizzaDetail/pizzadetail.css"
 
 const PizzaDetail = () => {
   //Estado global llamado para mapear los resultados de la vista detalle
@@ -10,32 +11,32 @@ const PizzaDetail = () => {
   const { filteredPizzasList } = useContext(CarritoDetailsContext);
 
   return (
-    <div className="home__card__container__details">
+    <div className="pizzas__card__container__details">
       {elementFoundById ? (
-        <div key={elementFoundById.id} className="home__card__body__details">
+        <div key={elementFoundById.id} className="pizzas__card__body__details">
           <img
-            className=" home__card__img__details"
+            className=" pizzas__card__img__details"
             src={elementFoundById.img}
             alt=""
           />
-          <div className="home__card__info__container__details">
-            <h3 className="home__card__title__details">
+          <div className="pizzas__card__info__container__details">
+            <h3 className="pizzas__card__title__details">
               {elementFoundById.name.charAt(0).toUpperCase() +
                 elementFoundById.name.slice(1)}
             </h3>
-            <p className=" home__card__description__details">
+            <p className=" pizzas__card__description__details">
               {elementFoundById.desc}
             </p>
-            <div className="home__card__ingredients__container__details">
-              <h5 className="home__card__ingredients__title__details">
+            <div className="pizzas__card__ingredients__container__details">
+              <h5 className="pizzas__card__ingredients__title__details">
                 Ingredientes:
               </h5>
               {elementFoundById.ingredients.map((ingredient, index) => {
                 return (
-                  <ul key={index} className="home__card__ingredients__details">
-                    <li className="home__card__ingredient__details">
+                  <ul key={index} className="pizzas__card__ingredients__details">
+                    <li className="pizzas__card__ingredient__details">
                       <img
-                        className="home__card__ingredient__icono__details"
+                        className="pizzas__card__ingredient__icono__details"
                         src="/pizza_icono.png"
                         alt=""
                       />
@@ -45,9 +46,9 @@ const PizzaDetail = () => {
                 );
               })}
             </div>
-            <hr className="home__Card__line__details" />
-            <div className="home__card__details__details">
-              <h3 className="home__card__price__details">
+            <hr className="pizzas__Card__line__details" />
+            <div className="pizzas__card__details__details">
+              <h3 className="pizzas__card__price__details">
                 Precio:{" "}
                 {elementFoundById.price.toLocaleString("es-CL", {
                   style: "currency",
@@ -60,15 +61,15 @@ const PizzaDetail = () => {
                   incrementarValorPizza(elementFoundById);
                   filteredPizzasList(elementFoundById);
                 }}
-                className="home__card__btn__details btn"
+                className="pizzas__card__btn__details btn"
                 variant="success"
                 value={elementFoundById.price}
               >
                 {elementFoundById.cantidad >= 1 ? (
-                  <p className="home__card__cart__paragraph">Pizza Añadida!!</p>
+                  <p className="pizzas__card__cart__paragraph">Pizza Añadida!!</p>
                 ) : (
-                  <div className="home__card__cart__detail">
-                    <p className="home__card__cart__paragraph home__card__cart__paragraph__details">
+                  <div className="pizzas__card__cart__detail">
+                    <p className="pizzas__card__cart__paragraph pizzas__card__cart__paragraph__details">
                       Añadir
                     </p>
                     <img src="/cart.svg" alt="" />

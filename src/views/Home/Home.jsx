@@ -1,4 +1,5 @@
-import Pizzas from "./Pizzas";
+import "../../views/Home/home.css";
+import Pizzas from "../Pizzas/Pizzas";
 
 const Home = () => {
   return (
