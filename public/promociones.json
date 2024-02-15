@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "title": "Promo 1",
     "type": "2x1",
     "desc1": "1 pizza mediana Peperonni",
@@ -10,6 +11,7 @@
     "image": "/pizza_promo.jpg"
   },
   {
+    "id": 2,
     "title": "Promo 2",
     "type": "2x1",
     "desc1": "1 pizza grande Peperonni",
@@ -20,6 +22,7 @@
     "image": "/pizza_promo.jpg"
   },
   {
+    "id": 3,
     "title": "Promo 3",
     "type": "Familiar",
     "desc1": "1 pizza Familiar",
@@ -30,6 +33,7 @@
     "image": "/pizza_promo.jpg"
   },
   {
+    "id": 4,
     "title": "Promo 4",
     "type": "Dúo Familiar",
     "desc1": "1 pizza Familiar Todas las carnes",
@@ -40,6 +44,7 @@
     "image": "/pizza_promo.jpg"
   },
   {
+    "id": 5,
     "title": "Promo 5",
     "type": "2x1",
     "desc1": "1 pizza grande",
@@ -50,6 +55,7 @@
     "image": "/pizza_promo.jpg"
   },
   {
+    "id": 6,
     "title": "Promo 6",
     "type": "2x1",
     "desc1": "1 pizza pequeña",

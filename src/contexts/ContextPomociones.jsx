@@ -3,7 +3,7 @@ import { useState, useEffect, createContext } from "react";
 export const PromocionesContext = createContext();
 
 const apiUrl = "/promociones.json";
-//Función que ejecuta el llamado a la api y lo almacena en un estyado global para proveerlo donde se necesite
+//Función que ejecuta el llamado a la api y lo almacena en un estado global para proveerlo donde se necesite
 const PromocionesProvider = ({ children }) => {
   const [promociones, setPromociones] = useState([]);
   const getApiData = async () => {
