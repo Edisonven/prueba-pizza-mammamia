@@ -26,7 +26,11 @@ const Promociones = () => {
               </div>
               <div>
                 <h3 className="promociones__value">
-                  Precio: ${promocion.value}
+                  Precio: 
+                  {promocion.value.toLocaleString("es-CL", {
+                    style: "currency",
+                    currency: "CLP",
+                  })}
                 </h3>
               </div>
             </div>
