@@ -27,12 +27,29 @@ const PromocionesProvider = ({ children }) => {
   useEffect(() => {
     getApiData();
   }, []);
+
   const incrementarCantidadPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    promociones[promoIndex].cantidad += 1;
+
+    // Crear una copia del array de promociones para no modificar el estado directamente
+    const promocionesActualizadas = [...promociones];
+
+    // Incrementar la cantidad de la promoción
+    promocionesActualizadas[promoIndex].cantidad += 1;
+
+    // Actualizar el estado con las promociones actualizadas
+    setPromociones(promocionesActualizadas); // Suponiendo que 'setPromociones' es la función para actualizar el estado
   };
+
+  /*   const incrementarCantidadPromo = (promo) => {
+    const promoIndex = promociones.findIndex((p) => p.id === promo.id);
+    promociones[promoIndex].cantidad += 1;
+  }; */
+
   return (
-    <PromocionesContext.Provider value={{ promociones, setPromociones,incrementarCantidadPromo }}>
+    <PromocionesContext.Provider
+      value={{ promociones, setPromociones, incrementarCantidadPromo }}
+    >
       {children}
     </PromocionesContext.Provider>
   );
