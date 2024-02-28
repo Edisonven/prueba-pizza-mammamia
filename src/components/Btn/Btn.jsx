@@ -1,10 +1,15 @@
 import "../Btn/btn.css";
 
-const Btn = () => {
+const Btn = ({ style, onClick, value, children }) => {
   return (
-    <div>
-      <h1>Hola soy un botón</h1>
-    </div>
+    <button
+      className="pizzas__card__btn btn"
+      style={style}
+      onClick={onClick}
+      value={value}
+    >
+      {children}
+    </button>
   );
 };
 

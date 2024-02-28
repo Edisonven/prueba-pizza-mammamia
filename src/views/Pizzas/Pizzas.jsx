@@ -3,6 +3,7 @@ import { ApiContext } from "../../contexts/ContextApi";
 import { useNavigate } from "react-router-dom";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import "../../views/Pizzas/pizzas.css";
+import Btn from "../../components/Btn/Btn";
 
 const Pizzas = () => {
   //Estado global que almacena la petición a la api, y cada objeto de la api encontrado dinamicamente por su id
@@ -85,41 +86,36 @@ const Pizzas = () => {
                 //Función llamada con el id del objeto almacenado como parámetro para encontrar el objeto seleccionado
                 onClick={() => navigateToDetail(pizza.id)}
                 className="pizzas__card__btn pizzas__card__btn__viewmore btn"
-                variant="danger"
                 value={pizza.id}
               >
                 Ver Detalle
               </button>
-
-              <div className="pizzas__card__cart">
-                <button
-                  style={{
-                    backgroundColor: pizza.cantidad ? "#88001b" : "",
-                    color: pizza.cantidad ? "#ffffffde" : "",
-                  }}
-                  //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
-                  onClick={() => {
-                    filteredPizzasList(pizza);
-                    incrementarValorPizza(pizza);
-                  }}
-                  className="pizzas__card__btn btn"
-                  variant="success"
-                  value={pizza.cantidad}
-                >
-                  {pizza.cantidad >= 1 ? (
-                    <p className="pizzas__card__cart__paragraph">
-                      ¡En el carrito!
-                    </p>
-                  ) : (
-                    <div className="pizzas__card__cart__detail">
-                      <p className="pizzas__card__cart__paragraph">Añadir</p>
-                      <span className="material-symbols-outlined">
-                        shopping_cart
-                      </span>
-                    </div>
-                  )}
-                </button>
-              </div>
+              <Btn
+                style={{
+                  backgroundColor: pizza.cantidad ? "#88001b" : "",
+                  color: pizza.cantidad ? "#ffffffde" : "",
+                }}
+                //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
+                onClick={() => {
+                  filteredPizzasList(pizza);
+                  incrementarValorPizza(pizza);
+                }}
+                value={pizza.cantidad}
+              >
+                {pizza.cantidad >= 1 ? (
+                  <p className="pizzas__card__cart__paragraph">
+                    ¡En el carrito!
+                  </p>
+                ) : (
+                  <div className="pizzas__card__cart__detail">
+                    <p className="pizzas__card__cart__paragraph">Añadir</p>
+                    <span className="material-symbols-outlined">
+                      shopping_cart
+                    </span>
+                  </div>
+                )}
+              </Btn>
+              <div className="pizzas__card__cart"></div>
             </div>
           </div>
         ))}
