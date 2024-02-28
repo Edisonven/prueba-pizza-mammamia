@@ -21,7 +21,6 @@
 }
 .promociones__img {
   width: 120px;
-  height: 200px;
   object-fit: cover;
 }
 .promociones__body {
@@ -50,7 +49,7 @@
   font-size: 1.2rem;
 }
 .promociones__value {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 @media (min-width: 576px) {

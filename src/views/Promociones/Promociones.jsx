@@ -5,11 +5,7 @@ import Btn from "../../components/Btn/Btn";
 
 const Promociones = () => {
   const { promociones } = useContext(PromocionesContext);
-
-  const incrementarCantidadPromo = (promo) => {
-    const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    promociones[promoIndex].cantidad += 1;
-  };
+  const { incrementarCantidadPromo } = useContext(PromocionesContext);
 
   return (
     <>
@@ -40,30 +36,32 @@ const Promociones = () => {
                   })}
                 </h3>
               </div>
+              <Btn
+                style={{
+                  backgroundColor: promocion.cantidad ? "#88001b" : "",
+                  color: promocion.cantidad ? "#ffffffde" : "",
+                }}
+                //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
+                onClick={() => {
+                  incrementarCantidadPromo(promocion);
+                }}
+                value={promocion.id}
+                className="promocions__card__btn btn"
+              >
+                {promocion.cantidad >= 1 ? (
+                  <p className="pizzas__card__cart__paragraph">
+                    ¡En el carrito!
+                  </p>
+                ) : (
+                  <div className="pizzas__card__cart__detail">
+                    <p className="pizzas__card__cart__paragraph">Añadir</p>
+                    <span className="material-symbols-outlined">
+                      shopping_cart
+                    </span>
+                  </div>
+                )}
+              </Btn>
             </div>
-            <Btn
-              style={{
-                backgroundColor: promocion.cantidad ? "#88001b" : "",
-                color: promocion.cantidad ? "#ffffffde" : "",
-              }}
-              //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
-              onClick={() => {
-                incrementarCantidadPromo(promocion);
-              }}
-              value={promocion.id}
-              className="promocions__card__btn btn"
-            >
-              {promocion.cantidad >= 1 ? (
-                <p className="pizzas__card__cart__paragraph">¡En el carrito!</p>
-              ) : (
-                <div className="pizzas__card__cart__detail">
-                  <p className="pizzas__card__cart__paragraph">Añadir</p>
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </div>
-              )}
-            </Btn>
           </div>
         ))}
       </section>

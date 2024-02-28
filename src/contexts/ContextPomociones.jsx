@@ -27,9 +27,12 @@ const PromocionesProvider = ({ children }) => {
   useEffect(() => {
     getApiData();
   }, []);
-
+  const incrementarCantidadPromo = (promo) => {
+    const promoIndex = promociones.findIndex((p) => p.id === promo.id);
+    promociones[promoIndex].cantidad += 1;
+  };
   return (
-    <PromocionesContext.Provider value={{ promociones, setPromociones }}>
+    <PromocionesContext.Provider value={{ promociones, setPromociones,incrementarCantidadPromo }}>
       {children}
     </PromocionesContext.Provider>
   );
