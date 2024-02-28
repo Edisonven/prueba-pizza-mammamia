@@ -13,7 +13,11 @@ const PromocionesProvider = ({ children }) => {
         throw new Error("Error al obtener los datos de la API");
       }
       const data = await respuesta.json();
-      setPromociones(data);
+      setPromociones(
+        data.map((data) => {
+          return { ...data, cantidad: 0 };
+        })
+      );
     } catch (error) {
       console.error("Error al obtener los datos de la API:", error);
     }

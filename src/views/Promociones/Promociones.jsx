@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import "../../views/Promociones/promociones.css";
 import { PromocionesContext } from "../../contexts/ContextPomociones";
+import Btn from "../../components/Btn/Btn";
 
 const Promociones = () => {
   const { promociones } = useContext(PromocionesContext);
+
+  const incrementarCantidadPromo = (promo) => {
+    const promoIndex = promociones.findIndex((p) => p.id === promo.id);
+    promociones[promoIndex].cantidad += 1;
+  };
+
   return (
     <>
       <h1 className="promociones__title">Nuestras promociones</h1>
@@ -26,7 +33,7 @@ const Promociones = () => {
               </div>
               <div>
                 <h3 className="promociones__value">
-                  Precio: 
+                  Precio:
                   {promocion.value.toLocaleString("es-CL", {
                     style: "currency",
                     currency: "CLP",
@@ -34,6 +41,29 @@ const Promociones = () => {
                 </h3>
               </div>
             </div>
+            <Btn
+              style={{
+                backgroundColor: promocion.cantidad ? "#88001b" : "",
+                color: promocion.cantidad ? "#ffffffde" : "",
+              }}
+              //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
+              onClick={() => {
+                incrementarCantidadPromo(promocion);
+              }}
+              value={promocion.id}
+              className="promocions__card__btn btn"
+            >
+              {promocion.cantidad >= 1 ? (
+                <p className="pizzas__card__cart__paragraph">¡En el carrito!</p>
+              ) : (
+                <div className="pizzas__card__cart__detail">
+                  <p className="pizzas__card__cart__paragraph">Añadir</p>
+                  <span className="material-symbols-outlined">
+                    shopping_cart
+                  </span>
+                </div>
+              )}
+            </Btn>
           </div>
         ))}
       </section>
