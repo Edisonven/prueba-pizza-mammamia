@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import { ApiContext } from "../../contexts/ContextApi";
 import "../../views/Carrito/carrito.css";
+import Btn from "../../components/Btn/Btn";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
@@ -66,28 +67,26 @@ const Carrito = () => {
                   }
                 )}
               </p>
-              <button
+              <Btn
                 onClick={() => {
                   decrement(pizza);
                   disminuirValorPizza(pizza);
                 }}
                 className="carrito__btn btn"
-                variant="danger"
               >
                 -
-              </button>
+              </Btn>
               <p className="carrito__cantidad">{pizza.cantidad}</p>
-              <button
+              <Btn
                 //Se llama a la función con el objeto asignado como parámetro
                 onClick={() => {
                   filteredPizzasList(pizza);
                   incrementarValorPizza(pizza);
                 }}
                 className="carrito__btn btn"
-                variant="primary"
               >
                 +
-              </button>
+              </Btn>
             </div>
           </div>
         ))

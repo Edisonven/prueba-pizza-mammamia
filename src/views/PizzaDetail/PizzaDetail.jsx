@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ApiContext } from "../../contexts/ContextApi";
 import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import "../../views/PizzaDetail/pizzadetail.css";
+import Btn from "../../components/Btn/Btn";
 
 const PizzaDetail = () => {
   //Estado global llamado para mapear los resultados de la vista detalle
@@ -58,7 +59,7 @@ const PizzaDetail = () => {
                   currency: "CLP",
                 })}
               </h3>
-              <button
+              <Btn
                 style={{
                   backgroundColor: elementFoundById.cantidad ? "#88001b" : "",
                   color: elementFoundById.cantidad ? "#ffffffde" : "",
@@ -80,10 +81,12 @@ const PizzaDetail = () => {
                     <p className="pizzas__card__cart__paragraph pizzas__card__cart__paragraph__details">
                       Añadir
                     </p>
-                    <span className="material-symbols-outlined">shopping_cart</span>
+                    <span className="material-symbols-outlined">
+                      shopping_cart
+                    </span>
                   </div>
                 )}
-              </button>
+              </Btn>
             </div>
           </div>
         </div>

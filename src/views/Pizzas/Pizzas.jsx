@@ -82,14 +82,14 @@ const Pizzas = () => {
               })}
             </h1>
             <div className="pizzas__card__details">
-              <button
+              <Btn
                 //Función llamada con el id del objeto almacenado como parámetro para encontrar el objeto seleccionado
                 onClick={() => navigateToDetail(pizza.id)}
                 className="pizzas__card__btn pizzas__card__btn__viewmore btn"
                 value={pizza.id}
               >
                 Ver Detalle
-              </button>
+              </Btn>
               <Btn
                 style={{
                   backgroundColor: pizza.cantidad ? "#88001b" : "",
@@ -101,6 +101,7 @@ const Pizzas = () => {
                   incrementarValorPizza(pizza);
                 }}
                 value={pizza.cantidad}
+                className="pizzas__card__btn btn"
               >
                 {pizza.cantidad >= 1 ? (
                   <p className="pizzas__card__cart__paragraph">
