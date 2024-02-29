@@ -44,85 +44,91 @@ const Carrito = () => {
   return (
     <section className="carrito__container">
       <h4 className="carrito__title">Detalles del pedido</h4>
-      {pizzasSeleccionadas.length < 1 ? (
-        <h3 className="carrito__pedido__title">
-          Aún no tienes nada en el carrito, Selecciona algunas pizzas para
-          comprar
-        </h3>
-      ) : (
-        pizzasSeleccionadas?.map((pizza) => (
-          <div key={pizza.id} className="carrito__details__container">
-            <div className="carrito__details">
-              <img className="carrito__details__img" src={pizza.img} alt="" />
-              <p className="carrito__details__paragraph">
-                {pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}
-              </p>
-            </div>
-
-            <div className="carrito__price__container">
-              <p className="carrito__price__value">
-                {parseInt(pizza.price * pizza.cantidad).toLocaleString(
-                  "es-CL",
-                  {
-                    style: "currency",
-                    currency: "CLP",
-                  }
-                )}
-              </p>
-              <Btn
-                onClick={() => {
-                  decrement(pizza);
-                  disminuirValorPizza(pizza);
-                }}
-                className="carrito__btn btn"
-              >
-                -
-              </Btn>
-              <p className="carrito__cantidad">{pizza.cantidad}</p>
-              <Btn
-                //Se llama a la función con el objeto asignado como parámetro
-                onClick={() => {
-                  filteredPizzasList(pizza);
-                  incrementarValorPizza(pizza);
-                }}
-                className="carrito__btn btn"
-              >
-                +
-              </Btn>
-            </div>
-          </div>
-        ))
-      )}
-      {promoSeleccionada.length > 0
-        ? promoSeleccionada?.map((promo) => (
-            <div key={promo.id} className="promocion__container">
-              <img className="promociones__img" src={promo.image} alt="" />
-              <div className="promociones__body">
-                <div className="promociones__title__body">
-                  <h4 className="promociones__title__desc">{promo.title}</h4>
-                  <h4 className="promociones__title__desc">{promo.type}</h4>
-                </div>
-                <div>
-                  <p className="promociones__paragraph">{promo.desc1}</p>
-                  <p className="promociones__paragraph">{promo.desc2}</p>
-                  <p className="promociones__paragraph">{promo.desc3}</p>
-                  <p className="promociones__paragraph promociones__paragraph__desc4">
-                    {promo.desc4}
+      {
+        pizzasSeleccionadas.length > 0
+          ? pizzasSeleccionadas.map((pizza) => (
+              <div key={pizza.id} className="carrito__details__container">
+                <div className="carrito__details">
+                  <img
+                    className="carrito__details__img"
+                    src={pizza.img}
+                    alt=""
+                  />
+                  <p className="carrito__details__paragraph">
+                    {pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}
                   </p>
                 </div>
-                <div>
-                  <h3 className="promociones__value">
-                    Precio:
-                    {promo.value.toLocaleString("es-CL", {
-                      style: "currency",
-                      currency: "CLP",
-                    })}
-                  </h3>
+
+                <div className="carrito__price__container">
+                  <p className="carrito__price__value">
+                    {parseInt(pizza.price * pizza.cantidad).toLocaleString(
+                      "es-CL",
+                      {
+                        style: "currency",
+                        currency: "CLP",
+                      }
+                    )}
+                  </p>
+                  <Btn
+                    onClick={() => {
+                      decrement(pizza);
+                      disminuirValorPizza(pizza);
+                    }}
+                    className="carrito__btn btn"
+                  >
+                    -
+                  </Btn>
+                  <p className="carrito__cantidad">{pizza.cantidad}</p>
+                  <Btn
+                    onClick={() => {
+                      filteredPizzasList(pizza);
+                      incrementarValorPizza(pizza);
+                    }}
+                    className="carrito__btn btn"
+                  >
+                    +
+                  </Btn>
                 </div>
               </div>
-            </div>
-          ))
-        : null}
+            ))
+          : null // No se muestra ninguna advertencia aquí, ya que la advertencia se mostrará después del segundo mapeo
+      }
+      {
+        promoSeleccionada.length > 0
+          ? promoSeleccionada.map((promo) => (
+              <div key={promo.id} className="carrito__details__container">
+                <div className="carrito__details">
+                  <img
+                    className="carrito__details__img"
+                    src={promo.image}
+                    alt=""
+                  />
+                  <p className="carrito__details__paragraph">
+                    {promo.title.charAt(0).toUpperCase() + promo.title.slice(1)}
+                  </p>
+                </div>
+
+                <div className="carrito__price__container">
+                  <p className="carrito__price__value">
+                    {parseInt(promo.value * promo.cantidad).toLocaleString(
+                      "es-CL",
+                      {
+                        style: "currency",
+                        currency: "CLP",
+                      }
+                    )}
+                  </p>
+                </div>
+              </div>
+            ))
+          : null // No se muestra ninguna advertencia aquí, ya que la advertencia se mostrará después del primer mapeo
+      }
+      {/* Advertencia de carrito vacío */}
+      {pizzasSeleccionadas.length === 0 && promoSeleccionada.length === 0 && (
+        <h3 className="carrito__pedido__title">
+          Aún no tienes nada en el carrito, Selecciona algo para comprar
+        </h3>
+      )}
       <div className="carrito__total__container">
         <div className="carrito__total__section">
           <h1>Total </h1>
