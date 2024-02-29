@@ -15,10 +15,15 @@ const Carrito = () => {
   } = useContext(CarritoDetailsContext);
 
   const { disminuirValorPizza, incrementarValorPizza } = useContext(ApiContext);
-  const { promoSeleccionada } = useContext(PromocionesContext);
+  const {
+    promoSeleccionada,
+    setPromoSeleccionada,
+    incrementarCantidadPromo,
+    filteredPromoList,
+  } = useContext(PromocionesContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
-  const decrement = (pizza) => {
+  const decrementPizza = (pizza) => {
     const pizzaIndex = pizzasSeleccionadas.findIndex((p) => p.id === pizza.id);
     //Evalúa si econtro el índice buscado por su id
     if (pizzaIndex !== -1) {
@@ -41,6 +46,28 @@ const Carrito = () => {
     }
   };
 
+  const decrementPromo = (promo) => {
+    const promoIndex = promoSeleccionada.findIndex((p) => p.id === promo.id);
+    //Evalúa si econtro el índice buscado por su id
+    if (promoIndex !== -1) {
+      //si se cumple la condición crea una copia del array pizzas seleccionadas
+      const updatedPromo = [...promoSeleccionada];
+      //Si la propiedad del objeto cuyo índice encontrado es igual a 1 ejecuta la lógica siguiente
+      if (promoSeleccionada[promoIndex].cantidad === 1) {
+        // Elimina el objeto del arreglo cuando la cantidad es 0
+        updatedPromo.splice(promoIndex, 1);
+      } else {
+        //si la cantidad supera el 1 va disminuyendo dicha cantidad de productos en 1
+        updatedPromo[promoIndex] = {
+          ...promoSeleccionada[promoIndex],
+          cantidad: promoSeleccionada[promoIndex].cantidad - 1,
+        };
+      }
+
+      // Actualiza el estado con el arreglo actualizado
+      setPromoSeleccionada(updatedPromo);
+    }
+  };
   return (
     <section className="carrito__container">
       <h4 className="carrito__title">Detalles del pedido</h4>
@@ -71,7 +98,7 @@ const Carrito = () => {
                   </p>
                   <Btn
                     onClick={() => {
-                      decrement(pizza);
+                      decrementPizza(pizza);
                       disminuirValorPizza(pizza);
                     }}
                     className="carrito__btn btn"
@@ -118,6 +145,24 @@ const Carrito = () => {
                       }
                     )}
                   </p>
+                  <Btn
+                    onClick={() => {
+                      decrementPromo(promo);
+                    }}
+                    className="carrito__btn btn"
+                  >
+                    -
+                  </Btn>
+                  <p className="carrito__cantidad">{promo.cantidad}</p>
+                  <Btn
+                    onClick={() => {
+                      incrementarCantidadPromo(promo);
+                      filteredPromoList(promo);
+                    }}
+                    className="carrito__btn btn"
+                  >
+                    +
+                  </Btn>
                 </div>
               </div>
             ))

@@ -69,7 +69,8 @@ const PromocionesProvider = ({ children }) => {
         setPromociones,
         incrementarCantidadPromo,
         filteredPromoList,
-        promoSeleccionada
+        promoSeleccionada,
+        setPromoSeleccionada,
       }}
     >
       {children}
