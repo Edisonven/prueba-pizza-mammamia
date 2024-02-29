@@ -3,6 +3,7 @@ import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import { ApiContext } from "../../contexts/ContextApi";
 import "../../views/Carrito/carrito.css";
 import Btn from "../../components/Btn/Btn";
+import { PromocionesContext } from "../../contexts/ContextPomociones";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
@@ -14,6 +15,7 @@ const Carrito = () => {
   } = useContext(CarritoDetailsContext);
 
   const { disminuirValorPizza, incrementarValorPizza } = useContext(ApiContext);
+  const { promoSeleccionada } = useContext(PromocionesContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
   const decrement = (pizza) => {
@@ -91,6 +93,36 @@ const Carrito = () => {
           </div>
         ))
       )}
+      {promoSeleccionada.length > 0
+        ? promoSeleccionada?.map((promo) => (
+            <div key={promo.id} className="promocion__container">
+              <img className="promociones__img" src={promo.image} alt="" />
+              <div className="promociones__body">
+                <div className="promociones__title__body">
+                  <h4 className="promociones__title__desc">{promo.title}</h4>
+                  <h4 className="promociones__title__desc">{promo.type}</h4>
+                </div>
+                <div>
+                  <p className="promociones__paragraph">{promo.desc1}</p>
+                  <p className="promociones__paragraph">{promo.desc2}</p>
+                  <p className="promociones__paragraph">{promo.desc3}</p>
+                  <p className="promociones__paragraph promociones__paragraph__desc4">
+                    {promo.desc4}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="promociones__value">
+                    Precio:
+                    {promo.value.toLocaleString("es-CL", {
+                      style: "currency",
+                      currency: "CLP",
+                    })}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))
+        : null}
       <div className="carrito__total__container">
         <div className="carrito__total__section">
           <h1>Total </h1>

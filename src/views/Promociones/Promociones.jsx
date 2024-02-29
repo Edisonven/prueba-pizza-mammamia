@@ -5,7 +5,8 @@ import Btn from "../../components/Btn/Btn";
 
 const Promociones = () => {
   const { promociones } = useContext(PromocionesContext);
-  const { incrementarCantidadPromo } = useContext(PromocionesContext);
+  const { incrementarCantidadPromo, filteredPromoList } =
+    useContext(PromocionesContext);
 
   return (
     <>
@@ -44,6 +45,7 @@ const Promociones = () => {
                 //Función llamada con el objeto almacenado como parámetro para encontrar el mismo  objeto seleccionado
                 onClick={() => {
                   incrementarCantidadPromo(promocion);
+                  filteredPromoList(promocion);
                 }}
                 value={promocion.id}
                 className="promocions__card__btn btn"
