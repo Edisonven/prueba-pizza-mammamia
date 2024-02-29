@@ -43,6 +43,13 @@ const PromocionesProvider = ({ children }) => {
     setPromociones(promocionesActualizadas); // Suponiendo que 'setPromociones' es la función para actualizar el estado
   };
 
+  const disminuirValorPromo = (promo) => {
+    const promoIndex = promociones.findIndex((p) => p.id === promo.id);
+    const promocionesActualizadas = [...promociones];
+    promocionesActualizadas[promoIndex].cantidad -= 1;
+    setPromoSeleccionada(promocionesActualizadas);
+  };
+
   const filteredPromoList = (promo) => {
     const promoYaSeleccionada = promoSeleccionada.find(
       (p) => p.id === promo.id
@@ -71,6 +78,7 @@ const PromocionesProvider = ({ children }) => {
         filteredPromoList,
         promoSeleccionada,
         setPromoSeleccionada,
+        disminuirValorPromo,
       }}
     >
       {children}

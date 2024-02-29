@@ -20,6 +20,7 @@ const Carrito = () => {
     setPromoSeleccionada,
     incrementarCantidadPromo,
     filteredPromoList,
+    disminuirValorPromo,
   } = useContext(PromocionesContext);
 
   //Función que disminuye la cantidad de elementos seleccionados en el carrito
@@ -50,7 +51,7 @@ const Carrito = () => {
     const promoIndex = promoSeleccionada.findIndex((p) => p.id === promo.id);
     //Evalúa si econtro el índice buscado por su id
     if (promoIndex !== -1) {
-      //si se cumple la condición crea una copia del array pizzas seleccionadas
+      //si se cumple la condición crea una copia del array promos seleccionadas
       const updatedPromo = [...promoSeleccionada];
       //Si la propiedad del objeto cuyo índice encontrado es igual a 1 ejecuta la lógica siguiente
       if (promoSeleccionada[promoIndex].cantidad === 1) {
@@ -147,6 +148,7 @@ const Carrito = () => {
                   </p>
                   <Btn
                     onClick={() => {
+                      disminuirValorPromo(promo);
                       decrementPromo(promo);
                     }}
                     className="carrito__btn btn"
