@@ -8,12 +8,8 @@ import TotalCarritoValue from "../../components/TotalCarritoValue/TotalCarritoVa
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
-  const {
-    pizzasSeleccionadas,
-    setPizzasSeleccionadas,
-    totalCarritoValue,
-    filteredPizzasList,
-  } = useContext(CarritoDetailsContext);
+  const { pizzasSeleccionadas, setPizzasSeleccionadas, filteredPizzasList } =
+    useContext(CarritoDetailsContext);
 
   const { disminuirValorPizza, incrementarValorPizza } = useContext(ApiContext);
   const {
