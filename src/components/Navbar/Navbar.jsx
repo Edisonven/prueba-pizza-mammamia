@@ -3,6 +3,7 @@ import { CarritoDetailsContext } from "../../contexts/ContextCarritoDetails";
 import NavbarHambur from "../../components/NavbarHambur/NavbarHambur.jsx";
 import "../../components/Navbar/navbar.css";
 import { NavLink, Link } from "react-router-dom";
+import TotalCarritoValue from "../TotalCarritoValue/TotalCarritoValue.jsx";
 
 const Navbar = () => {
   //Clase para los links que están activos
@@ -54,7 +55,10 @@ const Navbar = () => {
         >
           Menu
         </NavLink>
-        <NavLink to="/locales" className="navbar__carrito__section navbar__link">
+        <NavLink
+          to="/locales"
+          className="navbar__carrito__section navbar__link"
+        >
           Locales
         </NavLink>
         <NavLink
@@ -71,10 +75,7 @@ const Navbar = () => {
           <img className="navbar__carrito__img" src="/cart.svg" alt="" />
           <span className="navbar__carrito__value">
             {/*Estado que muestra el total añadido al carrito y formatea el valor a peso chileno*/}
-            {totalCarritoValue.toLocaleString("es-CL", {
-              style: "currency",
-              currency: "CLP",
-            })}
+            <TotalCarritoValue />
           </span>
         </NavLink>
       </div>

@@ -4,6 +4,7 @@ import { ApiContext } from "../../contexts/ContextApi";
 import "../../views/Carrito/carrito.css";
 import Btn from "../../components/Btn/Btn";
 import { PromocionesContext } from "../../contexts/ContextPomociones";
+import TotalCarritoValue from "../../components/TotalCarritoValue/TotalCarritoValue";
 
 const Carrito = () => {
   //Estado global que almacena las pizzas seleccionadas y el total del valor del carrito
@@ -180,11 +181,8 @@ const Carrito = () => {
         <div className="carrito__total__section">
           <h1>Total </h1>
           <h1>
-            {/*Estado que muestra el total añadido al carrito y formatea el valor a peso chileno*/}
-            {totalCarritoValue.toLocaleString("es-CL", {
-              style: "currency",
-              currency: "CLP",
-            })}
+            {/*componente que muestra el total añadido al carrito y formatea el valor a peso chileno*/}
+            <TotalCarritoValue />
           </h1>
         </div>
         <button className="carrito__btn__total btn" variant="success">
