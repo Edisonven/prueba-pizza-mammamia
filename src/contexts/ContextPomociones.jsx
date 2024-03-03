@@ -32,22 +32,12 @@ const PromocionesProvider = ({ children }) => {
 
   const incrementarCantidadPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-
-    // Crear una copia del array de promociones para no modificar el estado directamente
-    const promocionesActualizadas = [...promociones];
-
-    // Incrementar la cantidad de la promoción
-    promocionesActualizadas[promoIndex].cantidad += 1;
-
-    // Actualizar el estado con las promociones actualizadas
-    setPromociones(promocionesActualizadas); // Suponiendo que 'setPromociones' es la función para actualizar el estado
+    promociones[promoIndex].cantidad += 1;
   };
 
   const disminuirValorPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    const promocionesActualizadas = [...promociones];
-    promocionesActualizadas[promoIndex].cantidad -= 1;
-    setPromoSeleccionada(promocionesActualizadas);
+    promociones[promoIndex].cantidad -= 1;
   };
 
   const filteredPromoList = (promo) => {
