@@ -32,12 +32,30 @@ const PromocionesProvider = ({ children }) => {
 
   const incrementarCantidadPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    promociones[promoIndex].cantidad += 1;
+    const updatePromo = {
+      ...promociones[promoIndex],
+      cantidad: promociones[promoIndex].cantidad + 1,
+    };
+    const newData = [
+      ...promociones.slice(0, promoIndex),
+      updatePromo,
+      ...promociones.slice(promoIndex + 1),
+    ];
+    setPromociones(newData); // Actualiza el es
   };
 
   const disminuirValorPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    promociones[promoIndex].cantidad -= 1;
+    const updatePromo = {
+      ...promociones[promoIndex],
+      cantidad: promociones[promoIndex].cantidad - 1,
+    };
+    const newData = [
+      ...promociones.slice(0, promoIndex),
+      updatePromo,
+      ...promociones.slice(promoIndex - 1),
+    ];
+    setPromociones(newData);
   };
 
   const filteredPromoList = (promo) => {

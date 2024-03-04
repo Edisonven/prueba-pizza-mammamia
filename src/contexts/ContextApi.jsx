@@ -31,11 +31,30 @@ const ApiProvider = ({ children }) => {
 
   const incrementarValorPizza = (pizza) => {
     const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
-    apiData[pizzaIndex].cantidad += 1;
+    const updatedPizza = {
+      ...apiData[pizzaIndex],
+      cantidad: apiData[pizzaIndex].cantidad + 1,
+    };
+    const newData = [
+      ...apiData.slice(0, pizzaIndex),
+      updatedPizza,
+      ...apiData.slice(pizzaIndex + 1),
+    ];
+    setApiData(newData); // Actualiza el estado con la nueva data
   };
+
   const disminuirValorPizza = (pizza) => {
     const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
-    apiData[pizzaIndex].cantidad -= 1;
+    const updatedPizza = {
+      ...apiData[pizzaIndex],
+      cantidad: apiData[pizzaIndex].cantidad - 1,
+    };
+    const newData = [
+      ...apiData.slice(0, pizzaIndex),
+      updatedPizza,
+      ...apiData.slice(pizzaIndex - 1),
+    ];
+    setApiData(newData); // Actualiza el es
   };
 
   return (
