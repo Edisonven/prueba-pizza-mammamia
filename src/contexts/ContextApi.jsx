@@ -30,31 +30,39 @@ const ApiProvider = ({ children }) => {
   }, []);
 
   const incrementarValorPizza = (pizza) => {
-    const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
-    const updatedPizza = {
-      ...apiData[pizzaIndex],
-      cantidad: apiData[pizzaIndex].cantidad + 1,
-    };
-    const newData = [
-      ...apiData.slice(0, pizzaIndex),
-      updatedPizza,
-      ...apiData.slice(pizzaIndex + 1),
-    ];
-    setApiData(newData); // Actualiza el estado con la nueva data
+    // Usa el setter de estado previo para asegurar que estás trabajando con el valor más reciente
+    setApiData((prevApiData) => {
+      const pizzaIndex = prevApiData.findIndex((p) => p.id === pizza.id);
+      if (pizzaIndex !== -1) {
+        const updatedPizza = {
+          ...prevApiData[pizzaIndex],
+          cantidad: prevApiData[pizzaIndex].cantidad + 1,
+        };
+        return [
+          ...prevApiData.slice(0, pizzaIndex),
+          updatedPizza,
+          ...prevApiData.slice(pizzaIndex + 1),
+        ];
+      }
+      return prevApiData; // Si no se encuentra la pizza, devuelve el estado sin cambios
+    });
   };
 
   const disminuirValorPizza = (pizza) => {
     const pizzaIndex = apiData.findIndex((p) => p.id === pizza.id);
-    const updatedPizza = {
-      ...apiData[pizzaIndex],
-      cantidad: apiData[pizzaIndex].cantidad - 1,
-    };
-    const newData = [
-      ...apiData.slice(0, pizzaIndex),
-      updatedPizza,
-      ...apiData.slice(pizzaIndex - 1),
-    ];
-    setApiData(newData); // Actualiza el es
+    // Verifica si la cantidad es mayor que 0 antes de disminuir
+    if (apiData[pizzaIndex].cantidad > 0) {
+      const updatedPizza = {
+        ...apiData[pizzaIndex],
+        cantidad: apiData[pizzaIndex].cantidad - 1,
+      };
+      const newData = [
+        ...apiData.slice(0, pizzaIndex),
+        updatedPizza,
+        ...apiData.slice(pizzaIndex + 1), // Cambiado a pizzaIndex + 1
+      ];
+      setApiData(newData); // Actualiza el estado con la nueva data
+    }
   };
 
   return (

@@ -7,20 +7,19 @@ const CarritoDetailsPovider = ({ children }) => {
 
   //Función creada para ser utilizada en las vistas de home y detalle para añadir un elemento al carrito
   const filteredPizzasList = (pizza) => {
-    const pizzaYaSeleccionada = pizzasSeleccionadas.find(
-      (p) => p.id === pizza.id
-    );
-    if (pizzaYaSeleccionada) {
-      const nuevasPizzasSeleccionadas = pizzasSeleccionadas.map((p) =>
-        p.id === pizza.id ? { ...p, cantidad: p.cantidad + 1 } : p
+    // Usa el setter de estado previo para asegurar que estás trabajando con el valor más reciente
+    setPizzasSeleccionadas((prevPizzasSeleccionadas) => {
+      const pizzaYaSeleccionada = prevPizzasSeleccionadas.find(
+        (p) => p.id === pizza.id
       );
-      setPizzasSeleccionadas(nuevasPizzasSeleccionadas);
-    } else {
-      setPizzasSeleccionadas([
-        ...pizzasSeleccionadas,
-        { ...pizza, cantidad: 1 },
-      ]);
-    }
+      if (pizzaYaSeleccionada) {
+        return prevPizzasSeleccionadas.map((p) =>
+          p.id === pizza.id ? { ...p, cantidad: p.cantidad + 1 } : p
+        );
+      } else {
+        return [...prevPizzasSeleccionadas, { ...pizza, cantidad: 1 }];
+      }
+    });
   };
 
   return (
