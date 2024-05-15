@@ -46,16 +46,18 @@ const PromocionesProvider = ({ children }) => {
 
   const disminuirValorPromo = (promo) => {
     const promoIndex = promociones.findIndex((p) => p.id === promo.id);
-    const updatePromo = {
-      ...promociones[promoIndex],
-      cantidad: promociones[promoIndex].cantidad - 1,
-    };
-    const newData = [
-      ...promociones.slice(0, promoIndex),
-      updatePromo,
-      ...promociones.slice(promoIndex - 1),
-    ];
-    setPromociones(newData);
+    if (promociones[promoIndex].cantidad > 0) {
+      const updatedPromo = {
+        ...promociones[promoIndex],
+        cantidad: promociones[promoIndex].cantidad - 1, // Disminuye en 1
+      };
+      const newData = [
+        ...promociones.slice(0, promoIndex), // Usa spread para crear una copia
+        updatedPromo,
+        ...promociones.slice(promoIndex + 1),
+      ];
+      setPromociones(newData);
+    }
   };
 
   const filteredPromoList = (promo) => {
